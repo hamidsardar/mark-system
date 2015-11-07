@@ -1,0 +1,48 @@
+<page-title ng-if="layoutOptions.pageTitles" title="Zones" description="Zone Management"></page-title>
+
+<div class="row">
+
+	<div class="col-md-12">
+
+		<tabset>
+			<tab heading="All Zones">
+				<table class="table table-hover members-table middle-align">
+					<thead>
+						<tr class="replace-inputs">
+							<th>Name</th>
+							<th>Settings</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="zone in data" ng-hide="zone.deleted">
+							<td class="user-name">
+								<a href="" class="name" ng-click="editZone(zone.zoneID)">
+								{{ zone.name }}
+								</a>
+							</td>
+							<td class="action-links">
+								<a href="" class="edit" ng-click="editZone(zone.zoneID)">
+									<i class="linecons-pencil"></i>
+									Edit Zone
+								</a>
+		
+								<a href="" class="delete" ng-click="deleteZone(zone)">
+									<i class="linecons-trash"></i>
+									Delete
+								</a>
+								
+							</td>
+						</tr>
+						
+					</tbody>
+					
+				</table>
+				<div class="selected-actions" >
+					<a href="#/app/zone-manager-add-zone" class="edit" style="color: green">Add a Zone</a>								
+				</div>
+			</tab>
+		</tabset>
+							
+	</div>
+	
+</div>

@@ -1,0 +1,75 @@
+
+
+	<page-title ng-if="layoutOptions.pageTitles" title="Editors" description="Combined WYSIWYG editors you can use with Xenon theme"></page-title>
+
+
+<h3 class="text-gray">
+	Bootstrap WYSIHMTL5 <br />
+	<small class="text-muted">Simple, beautiful wysiwyg editor</small>
+</h3>
+
+<br />
+
+<form role="form" method="post">
+
+	<div class="form-group">
+		<textarea class="form-control wysihtml5" data-stylesheet-url="assets/js/wysihtml5/lib/css/wysiwyg-color.css" name="sample_wysiwyg" id="sample_wysiwyg"></textarea>
+	</div>
+		
+</form>
+
+<br />
+
+<h3 class="text-gray">
+	Markdown Area <br />
+	<small class="text-muted">Create a rich HTML or markdown editor with an immediate preview and syntax highlighting.</small>
+</h3>
+
+
+<br />
+
+<form role="form" method="post">
+	
+	<div class="form-group">
+		<textarea class="form-control" rows="10"  id="uikit_editor_1"><h1>Heading</h1>
+
+<p>Lorem ipsum dolor sit <strong>amet</strong>, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. <a href="<?php _hash(); ?>">This is a link</a></p>
+
+<ul>
+    <li>Item</li>
+    <li>Item</li>
+    <li>Item</li>
+</ul>
+
+<h2>Heading</h2>
+
+<p>Ut enim ad <em>minim</em> veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p></textarea>
+				<script type="text/javascript">
+			jQuery.UIkit.htmleditor(jQuery("#uikit_editor_1"));
+		</script>
+			</div>
+	
+	<div class="form-group">
+		<textarea class="form-control" rows="10"  id="uikit_editor_2">#Heading
+
+Lorem ipsum dolor sit **amet**, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. [This is a link](#)
+
+* Item
+* Item
+* Item
+
+## Heading
+
+Ut enim ad *minim* veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+
+<a href="<?php _hash(); ?>">This link is written in HTML</a></textarea>
+				<script type="text/javascript">
+			jQuery.UIkit.htmleditor(jQuery("#uikit_editor_2"), {
+				markdown: true,
+				mode: 'tab'
+			});
+		</script>
+			</div>
+	
+</form>
+

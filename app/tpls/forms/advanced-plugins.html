@@ -1,0 +1,1378 @@
+
+
+	<page-title ng-if="layoutOptions.pageTitles" title="Advanced Plugins" description="Custom form elements using Bootstrap and jQuery plugins"></page-title>
+
+
+
+<div class="row">
+	<div class="col-sm-6">
+		
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title">Select2 Elements</h3>
+				<div class="panel-options">
+					<a href="" data-toggle="panel">
+						<span class="collapse-icon">&ndash;</span>
+						<span class="expand-icon">+</span>
+					</a>
+					<a href="" data-toggle="remove">
+						&times;
+					</a>
+				</div>
+			</div>
+			<div class="panel-body">
+				
+				<form role="form">
+					
+					<div class="form-group">
+						<label class="control-label">Select list</label>
+						
+						<script type="text/javascript">
+							jQuery(document).ready(function($)
+							{
+								$("#s2example-1").select2({
+									placeholder: 'Select your country...',
+									allowClear: true
+								}).on('select2-open', function()
+								{
+									// Adding Custom Scrollbar
+									$(this).data('select2').results.addClass('overflow-hidden').perfectScrollbar();
+								});
+								
+							});
+						</script>
+						
+						<select class="form-control" id="s2example-1">
+							<option></option>
+							<optgroup label="North America">
+								<option>Alabama</option>
+								<option>Alaska</option>
+								<option>Arizona</option>
+								<option>Arkansas</option>
+								<option>California</option>
+								<option>Colorado</option>
+								<option>Connecticut</option>
+								<option>Delaware</option>
+								<option>Florida</option>
+								<option>Georgia</option>
+								<option>Hawaii</option>
+								<option>Idaho</option>
+								<option>Illinois</option>
+								<option>Indiana</option>
+								<option>Iowa</option>
+								<option>Kansas</option>
+								<option>Kentucky[C]</option>
+								<option>Louisiana</option>
+								<option>Maine</option>
+								<option>Maryland</option>
+								<option>Massachusetts[D]</option>
+								<option>Michigan</option>
+								<option>Minnesota</option>
+								<option>Mississippi</option>
+								<option>Missouri</option>
+								<option>Montana</option>
+								<option>Nebraska</option>
+								<option>Nevada</option>
+								<option>New Hampshire</option>
+								<option>New Jersey</option>
+								<option>New Mexico</option>
+								<option>New York</option>
+								<option>North Carolina</option>
+								<option>North Dakota</option>
+								<option>Ohio</option>
+								<option>Oklahoma</option>
+								<option>Oregon</option>
+								<option>Pennsylvania[E]</option>
+								<option>Rhode Island[F]</option>
+								<option>South Carolina</option>
+								<option>South Dakota</option>
+								<option>Tennessee</option>
+								<option>Texas</option>
+								<option>Utah</option>
+								<option>Vermont</option>
+								<option>Virginia[G]</option>
+								<option>Washington</option>
+								<option>West Virginia</option>
+								<option>Wisconsin</option>
+								<option>Wyoming</option>
+							</optgroup>
+							<optgroup label="Europe">
+								<option>Albania</option>
+								<option>Andorra</option>
+								<option>Armenia</option>
+								<option>Austria</option>
+								<option>Azerbaijan</option>
+								<option>Belarus</option>
+								<option>Belgium</option>
+								<option>Bosnia & Herzegovina</option>
+								<option>Bulgaria</option>
+								<option>Croatia</option>
+								<option>Cyprus</option>
+								<option>Czech Republic</option>
+								<option>Denmark</option>
+								<option>Estonia</option>
+								<option>Finland</option>
+								<option>France</option>
+								<option>Georgia</option>
+								<option>Germany</option>
+								<option>Greece</option>
+								<option>Hungary</option>
+								<option>Iceland</option>
+								<option>Ireland</option>
+								<option>Italy</option>
+								<option>Kosovo</option>
+								<option>Latvia</option>
+								<option>Liechtenstein</option>
+								<option>Lithuania</option>
+								<option>Luxembourg</option>
+								<option>Macedonia</option>
+								<option>Malta</option>
+								<option>Moldova</option>
+								<option>Monaco</option>
+								<option>Montenegro</option>
+								<option>The Netherlands</option>
+								<option>Norway</option>
+								<option>Poland</option>
+								<option>Portugal</option>
+								<option>Romania</option>
+								<option>Russia</option>
+								<option>San Marino</option>
+								<option>Serbia</option>
+								<option>Slovakia</option>
+								<option>Slovenia</option>
+								<option>Spain</option>
+								<option>Sweden</option>
+								<option>Switzerland</option>
+								<option>Turkey</option>
+								<option>Ukraine</option>
+								<option>United Kingdom</option>
+								<option>Vatican City (Holy See)</option>
+							</optgroup>
+							<optgroup label="Asia">
+								<option>Afghanistan</option>
+								<option>Bahrain</option>
+								<option>Bangladesh</option>
+								<option>Bhutan</option>
+								<option>Brunei</option>
+								<option>Cambodia</option>
+								<option>China</option>
+								<option>East Timor</option>
+								<option>India</option>
+								<option>Indonesia</option>
+								<option>Iran</option>
+								<option>Iraq</option>
+								<option>Israel</option>
+								<option>Japan</option>
+								<option>Jordan</option>
+								<option>Kazakhstan</option>
+								<option>Korea North</option>
+								<option>Korea South</option>
+								<option>Kuwait</option>
+								<option>Kyrgyzstan</option>
+								<option>Laos</option>
+								<option>Lebanon</option>
+								<option>Malaysia</option>
+								<option>Maldives</option>
+								<option>Mongolia</option>
+								<option>Myanmar (Burma)</option>
+								<option>Nepal</option>
+								<option>Oman</option>
+								<option>Pakistan</option>
+								<option>The Philippines</option>
+								<option>Qatar</option>
+								<option>Russia</option>
+								<option>Saudi Arabia</option>
+								<option>Singapore</option>
+								<option>Sri Lanka</option>
+								<option>Syria</option>
+								<option>Taiwan</option>
+								<option>Tajikistan</option>
+								<option>Thailand</option>
+								<option>Turkey</option>
+								<option>Turkmenistan</option>
+								<option>United Arab Emirates</option>
+								<option>Uzbekistan</option>
+								<option>Vietnam</option>
+								<option>Yemen</option>
+							</optgroup>
+						</select>
+							
+							
+					</div>
+					
+					<div class="form-group">
+						<label class="control-label">Multiple select</label>
+						
+							
+						<script type="text/javascript">
+							jQuery(document).ready(function($)
+							{
+								$("#s2example-2").select2({
+									placeholder: 'Choose your favorite US Countries',
+									allowClear: true
+								}).on('select2-open', function()
+								{
+									// Adding Custom Scrollbar
+									$(this).data('select2').results.addClass('overflow-hidden').perfectScrollbar();
+								});
+								
+							});
+						</script>
+						
+						<select class="form-control" id="s2example-2" multiple>
+							<option></option>
+							<optgroup label="United States">
+								<option>Alabama</option>
+								<option>Alaska</option>
+								<option>Arizona</option>
+								<option>Arkansas</option>
+								<option selected>California</option>
+								<option>Colorado</option>
+								<option>Connecticut</option>
+								<option>Delaware</option>
+								<option selected>Florida</option>
+								<option>Georgia</option>
+								<option>Hawaii</option>
+								<option>Idaho</option>
+								<option>Illinois</option>
+								<option>Indiana</option>
+								<option>Iowa</option>
+								<option>Kansas</option>
+								<option>Kentucky[C]</option>
+								<option>Louisiana</option>
+								<option>Maine</option>
+								<option>Maryland</option>
+								<option>Massachusetts[D]</option>
+								<option>Michigan</option>
+								<option>Minnesota</option>
+								<option>Mississippi</option>
+								<option>Missouri</option>
+								<option>Montana</option>
+								<option>Nebraska</option>
+								<option>Nevada</option>
+								<option>New Hampshire</option>
+								<option>New Jersey</option>
+								<option>New Mexico</option>
+								<option>New York</option>
+								<option>North Carolina</option>
+								<option>North Dakota</option>
+								<option>Ohio</option>
+								<option>Oklahoma</option>
+								<option>Oregon</option>
+								<option>Pennsylvania[E]</option>
+								<option>Rhode Island[F]</option>
+								<option>South Carolina</option>
+								<option>South Dakota</option>
+								<option>Tennessee</option>
+								<option>Texas</option>
+								<option>Utah</option>
+								<option>Vermont</option>
+								<option>Virginia[G]</option>
+								<option selected>Washington</option>
+								<option>West Virginia</option>
+								<option>Wisconsin</option>
+								<option>Wyoming</option>
+							</optgroup>
+						</select>
+							
+					</div>
+					
+					<div class="form-group">
+						<label class="control-label">Templating</label>
+							
+						<script type="text/javascript">
+							jQuery(document).ready(function($)
+							{
+								$("#s2example-3").select2({
+									placeholder: 'Select country...',
+									allowClear: true,
+									minimumResultsForSearch: -1, // Hide the search bar
+									formatResult: function(state)
+									{
+										return '<div style="background:url(http://www.geonames.org/flags/x/' + state.id + '.gif) no-repeat center center;background-size:100%;display:inline-block;position:relative;width:20px;height:15px;margin-right: 10px;top:2px;"></div>' 
+												+ state.text;
+									}
+								}).on('select2-open', function()
+								{
+									// Adding Custom Scrollbar
+									$(this).data('select2').results.addClass('overflow-hidden').perfectScrollbar();
+								});
+							});
+						</script>
+						
+						<select class="form-control" id="s2example-3">
+							<option></option>
+							<option value="al">Albania</option>
+							<option value="au">Australia</option>
+							<option value="bd">Bandgladesh</option>
+							<option value="br">Brasil</option>
+							<option value="ca">Canada</option>
+							<option value="cn">China</option>
+							<option value="de">Germany</option>
+							<option value="fr">France</option>
+							<option value="gr">Greece</option>
+							<option value="jp">Japan</option>
+							<option value="xk">Kosovo</option>
+							<option value="nl">Netherlands</option>
+							<option value="no">Norway</option>
+							<option value="ru">Russia</option>
+							<option value="se">Sweden</option>
+							<option value="tr">Turkey</option>
+							<option value="uk">United Kingdom</option>
+							<option value="us">United States</option>
+						</select>
+							
+					</div>
+					
+					<div class="form-group">
+						<label class="control-label">Remote Data</label> 
+						<script type="text/javascript">
+							jQuery(document).ready(function($)
+							{
+								$("#s2example-4").select2({
+									minimumInputLength: 1,
+									placeholder: 'Search',
+									ajax: {
+										url: "data/select2-remote-data.php",
+										dataType: 'json',
+										quietMillis: 100,
+										data: function(term, page) {
+											return {
+												limit: -1,
+												q: term
+											};
+										},
+										results: function(data, page ) {
+											return { results: data }
+										}
+									},
+									formatResult: function(student) { 
+										return "<div class='select2-user-result'>" + student.name + "</div>"; 
+									},
+									formatSelection: function(student) { 
+										return  student.name; 
+									}
+									
+								});
+							});
+						</script>
+						
+						<input type="hidden" name="s2example-4" id="s2example-4" />
+							
+					</div>
+					
+				</form>
+			
+			</div>
+		</div>
+	
+	</div>
+	
+	<div class="col-sm-6">
+		
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title">SelectBoxIt</h3>
+				<div class="panel-options">
+						<a href="" data-toggle="panel">
+							<span class="collapse-icon">&ndash;</span>
+							<span class="expand-icon">+</span>
+						</a>
+						<a href="" data-toggle="remove">
+							&times;
+						</a>
+				</div>
+			</div>
+			<div class="panel-body">
+				
+				<form role="form">
+					
+					<div class="form-group">
+						<label class="control-label">Simple select</label>
+						
+						<script type="text/javascript">
+							jQuery(document).ready(function($)
+							{
+								$("#sboxit-1").selectBoxIt().on('open', function()
+								{
+									// Adding Custom Scrollbar
+									$(this).data('selectBoxSelectBoxIt').list.perfectScrollbar();
+								});
+							});
+						</script>
+						
+						<select class="form-control" id="sboxit-1">
+							<option value="al">Albania</option>
+							<option value="au">Australia</option>
+							<option value="bd">Bandgladesh</option>
+							<option value="br">Brasil</option>
+							<option value="ca">Canada</option>
+							<option value="cn">China</option>
+							<option value="de">Germany</option>
+							<option value="fr">France</option>
+							<option value="gr">Greece</option>
+							<option value="jp">Japan</option>
+							<option value="xk">Kosovo</option>
+							<option value="nl">Netherlands</option>
+							<option value="no">Norway</option>
+							<option value="ru">Russia</option>
+							<option value="se">Sweden</option>
+							<option value="tr">Turkey</option>
+							<option value="uk">United Kingdom</option>
+							<option value="us">United States</option>
+						</select>
+							
+					</div>
+					
+					<div class="form-group">
+						<label class="control-label">Placeholder added</label>
+						
+						<script type="text/javascript">
+							jQuery(document).ready(function($)
+							{
+								$("#sboxit-2").selectBoxIt({
+									showFirstOption: false
+								}).on('open', function()
+								{
+									// Adding Custom Scrollbar
+									$(this).data('selectBoxSelectBoxIt').list.perfectScrollbar();
+								});
+							});
+						</script>
+						
+						<select class="form-control" id="sboxit-2">
+							<option>Select your country</option>
+							<option value="al">Albania</option>
+							<option value="au">Australia</option>
+							<option value="bd">Bandgladesh</option>
+							<option value="br">Brasil</option>
+							<option value="ca">Canada</option>
+							<option value="cn">China</option>
+							<option value="de">Germany</option>
+							<option value="fr">France</option>
+							<option value="gr">Greece</option>
+							<option value="jp">Japan</option>
+							<option value="xk">Kosovo</option>
+							<option value="nl">Netherlands</option>
+							<option value="no">Norway</option>
+							<option value="ru">Russia</option>
+							<option value="se">Sweden</option>
+							<option value="tr">Turkey</option>
+							<option value="uk">United Kingdom</option>
+							<option value="us">United States</option>
+						</select>
+							
+					</div>
+					
+					<div class="form-group">
+						<label class="control-label">Native dropdown menu</label>
+						
+						<script type="text/javascript">
+							jQuery(document).ready(function($)
+							{
+								$("#sboxit-3").selectBoxIt({
+									showFirstOption: false,
+									"native": true
+								});
+							});
+						</script>
+						
+						<select class="form-control" id="sboxit-3">
+							<option>Select your country</option>
+							<option value="al">Albania</option>
+							<option value="au">Australia</option>
+							<option value="bd">Bandgladesh</option>
+							<option value="br">Brasil</option>
+							<option value="ca">Canada</option>
+							<option value="cn">China</option>
+							<option value="de">Germany</option>
+							<option value="fr">France</option>
+							<option value="gr">Greece</option>
+							<option value="jp">Japan</option>
+							<option value="xk">Kosovo</option>
+							<option value="nl">Netherlands</option>
+							<option value="no">Norway</option>
+							<option value="ru">Russia</option>
+							<option value="se">Sweden</option>
+							<option value="tr">Turkey</option>
+							<option value="uk">United Kingdom</option>
+							<option value="us">United States</option>
+						</select>
+							
+					</div>
+					
+					<div class="form-group">
+						<label class="control-label">Show and hide with effects</label>
+						
+						<script type="text/javascript">
+							jQuery(document).ready(function($)
+							{
+								$("#sboxit-4").selectBoxIt({
+									showEffect: 'fadeIn',
+									hideEffect: 'fadeOut'
+								});
+							});
+						</script>
+						
+						<select class="form-control" id="sboxit-4">
+							<option>Select your country</option>
+							<option value="al">Albania</option>
+							<option value="au">Australia</option>
+							<option value="bd">Bandgladesh</option>
+							<option value="br">Brasil</option>
+							<option value="ca">Canada</option>
+							<option value="cn">China</option>
+							<option value="de">Germany</option>
+							<option value="fr">France</option>
+							<option value="gr">Greece</option>
+							<option value="jp">Japan</option>
+							<option value="xk">Kosovo</option>
+							<option value="nl">Netherlands</option>
+							<option value="no">Norway</option>
+							<option value="ru">Russia</option>
+							<option value="se">Sweden</option>
+							<option value="tr">Turkey</option>
+							<option value="uk">United Kingdom</option>
+							<option value="us">United States</option>
+						</select>
+							
+					</div>
+					
+				</form>
+			
+			</div>
+		</div>
+	
+	</div>
+</div>
+
+
+<div class="row">
+	<div class="col-sm-6">
+		
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title">Tags Input</h3>
+				<div class="panel-options">
+					<a href="" data-toggle="panel">
+						<span class="collapse-icon">&ndash;</span>
+						<span class="expand-icon">+</span>
+					</a>
+					<a href="" data-toggle="remove">
+						&times;
+					</a>
+				</div>
+			</div>
+			<div class="panel-body">
+				
+				<form role="form">
+					
+					<div class="form-group">
+						<label class="control-label" for="tagsinput-1">Tags Input</label>
+						<input type="text" class="form-control" id="tagsinput-1" data-role="tagsinput" value="Sample tag, Another great tag, Awesome!" tagsinput />	
+					</div>
+					
+					<div class="form-group">
+						<label class="control-label" for="tagsinput-1">Custom tag color</label>						
+						
+						<script type="text/javascript">
+							jQuery(document).ready(function($)
+							{
+								var i = -1,
+									colors = ['primary', 'secondary', 'red', 'blue', 'warning', 'success', 'purple'];
+								
+								colors = shuffleArray(colors);
+								
+								$("#tagsinput-2").tagsinput({
+									tagClass: function()
+									{
+										i++;
+										return "label label-" + colors[i%colors.length];
+									}
+								});
+							});
+							
+							// Just for demo purpose
+							function shuffleArray(array)
+							{
+								for (var i = array.length - 1; i > 0; i--) 
+								{
+									var j = Math.floor(Math.random() * (i + 1));
+									var temp = array[i];
+									array[i] = array[j];
+									array[j] = temp;
+								}
+								return array;
+							}
+						</script>
+						<input type="text" class="form-control" id="tagsinput-2" value="Sample tag, Another great tag, Awesome!, Every time, Different Color" />
+					</div>
+				
+				</form>
+			
+			</div>
+		</div>
+	
+	</div>
+	<div class="col-sm-6">
+		
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title">Spinners</h3>
+				<div class="panel-options">
+					<a href="" data-toggle="panel">
+						<span class="collapse-icon">&ndash;</span>
+						<span class="expand-icon">+</span>
+					</a>
+					<a href="" data-toggle="remove">
+						&times;
+					</a>
+				</div>
+			</div>
+			<div class="panel-body">
+				
+				<form role="form">
+					
+					<div class="form-group">
+						<label class="control-label">Spinner Examples</label>
+						
+						<div class="row">
+							<div class="col-md-6">
+							
+								<!-- Input spinner, just add class "spinner" to input-group and it will be activated -->
+								<div class="input-group spinner" data-step="1">
+									<span class="input-group-btn">
+										<button class="btn btn-gray" data-type="decrement">-</button>
+									</span>
+									<input type="text" class="form-control text-center" value="1" />
+									<span class="input-group-btn">
+										<button class="btn btn-gray" data-type="increment">+</button>
+									</span>
+								</div>
+								
+							</div>
+							<div class="col-md-6">
+							
+								<!-- Input spinner, just add class "spinner" to input-group and it will be activated -->
+								<div class="input-group spinner" data-step="2" data-min="5" data-max="15">
+									<span class="input-group-btn">
+										<button class="btn btn-gray" data-type="decrement">-</button>
+									</span>
+									<input type="text" class="form-control text-center" readonly="1" value="7" />
+									<span class="input-group-btn">
+										<button class="btn btn-gray" data-type="increment">+</button>
+									</span>
+								</div>
+								
+							</div>
+						</div>
+						
+						
+						
+						<br />
+						<label class="control-label">Input Size</label>
+						
+						<!-- Input spinner, just add class "spinner" to input-group and it will be activated -->
+						<div class="input-group input-group-lg spinner col-sm-12" data-step="5">
+							<span class="input-group-btn">
+								<button class="btn btn-info btn-single" data-type="decrement">-</button>
+							</span>
+							<input type="text" class="form-control text-center no-left-border" value="9" readonly />
+							<span class="input-group-btn">
+								<button class="btn btn-info btn-single" data-type="increment">+</button>
+							</span>
+						</div>
+					</div>
+				
+				</form>
+			
+			</div>
+		</div>
+		
+	</div>
+</div>
+
+
+<div class="row">
+	<div class="col-sm-12">
+		
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title">Multi-select</h3>
+				<div class="panel-options">
+					<a href="" data-toggle="panel">
+						<span class="collapse-icon">&ndash;</span>
+						<span class="expand-icon">+</span>
+					</a>
+					<a href="" data-toggle="remove">
+						&times;
+					</a>
+				</div>
+			</div>
+			<div class="panel-body">
+				
+				<form role="form" class="form-horizontal">
+					
+					<div class="form-group">
+						<label class="col-sm-3 control-label" for="tagsinput-1">Multi-select List</label>
+						
+						<div class="col-sm-9">
+							
+							<script type="text/javascript">
+								jQuery(document).ready(function($)
+								{
+									$("#multi-select").multiSelect({
+										afterInit: function()
+										{
+											// Add alternative scrollbar to list
+											this.$selectableContainer.add(this.$selectionContainer).find('.ms-list').perfectScrollbar();
+										},
+										afterSelect: function()
+										{
+											// Update scrollbar size
+											this.$selectableContainer.add(this.$selectionContainer).find('.ms-list').perfectScrollbar('update');
+										}
+									});
+								});
+							</script>
+							<select class="form-control" multiple="multiple" id="multi-select" name="my-select[]">
+								<option value="1">Silky Door</option>
+								<option value="2">The Absent Twilight</option>
+								<option value="3">Tales of Flames</option>
+								<option value="4">The Princess's Dream</option>
+								<option value="5">The Fairy of the Wind</option>
+								<option value="6">Children in the Boy</option>
+								<option value="7">Frozen Savior</option>
+								<option value="8">The Missing Thorns</option>
+								<option value="9">Healing of Serpent</option>
+								<option value="10">The Voyagers's Girlfriend</option>
+								<option value="11">The Nothing of the Gate</option>
+								<option value="12">Healing in the Scent</option>
+								<option value="13">Final Twins</option>
+								<option value="14">The Willing Rose</option>
+								<option value="15">Thorn of Emperor</option>
+								<option value="16" selected>The Predator's Pirates</option>
+								<option value="17">The Lord of the Girl</option>
+								<option value="18" selected>Flowers in the Spirit</option>
+								<option value="19" selected>Healing in the Silence</option>
+								<option value="20">Planet of Bridges</option>
+							</select>
+							
+						</div>
+					</div>
+				
+				</form>
+			
+			</div>
+		</div>
+	
+	</div>
+</div>
+
+
+<div class="row">
+	<div class="col-sm-12">
+		
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title">Typeahead Suggestions</h3>
+				<div class="panel-options">
+					<a href="" data-toggle="panel">
+						<span class="collapse-icon">&ndash;</span>
+						<span class="expand-icon">+</span>
+					</a>
+					<a href="" data-toggle="remove">
+						&times;
+					</a>
+				</div>
+			</div>
+			<div class="panel-body">
+				
+				<form role="form" class="form-horizontal">
+					
+					<div class="form-group">
+						<label class="col-sm-3 control-label" for="tagsinput-1">Auto-suggest (local dataset)</label>
+						
+						<div class="col-sm-9">
+							
+							<script type="text/javascript">
+								jQuery(document).ready(function($)
+								{
+									var states = ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut', 'Delaware', 'Florida', 'Georgia', 'Hawaii', 'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana', 'Maine', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi', 'Missouri', 'Montana', 'Nebraska', 'Nevada', 'New Hampshire', 'New Jersey', 'New Mexico', 'New York', 'North Carolina', 'North Dakota', 'Ohio', 'Oklahoma', 'Oregon', 'Pennsylvania', 'Rhode Island', 'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virginia', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming' ]
+									
+									var substringMatcher = function(strs) 
+									{
+										return function findMatches(q, cb) 
+										{
+											var matches, substrRegex;
+											matches = [];
+											substrRegex = new RegExp(q, 'i');
+											
+											$.each(strs, function(i, str) 
+											{
+												if (substrRegex.test(str)) 
+												{
+													matches.push({ value: str });
+												}
+											});
+										 
+											cb(matches);
+										};
+									};
+									
+									$("#typeahead-1").typeahead({
+										hint: true,
+										highlight: true,
+										minLength: 1
+									}, 
+									{
+										name: 'states', 
+										displayKey: 'value', 
+										source: substringMatcher(states)
+									})
+									.bind('typeahead:opened', function()
+									{
+										$(this).data('ttTypeahead').dropdown.$menu.addClass('overflow-hidden').perfectScrollbar();
+									})
+									.on('keyup', function()
+									{
+										$(this).data('ttTypeahead').dropdown.$menu.perfectScrollbar('update');
+									});
+									
+								});
+							</script>
+							
+							<div class="input-group">
+								<input type="text" class="form-control" id="typeahead-1" />						
+								<span class="input-group-addon">
+									<i class="fa-globe"></i>
+								</span>
+							</div>
+							
+						</div>
+					</div>
+					
+					<div class="form-group-separator"></div>
+					
+					<div class="form-group">
+						<label class="col-sm-3 control-label" for="tagsinput-2">Pre-fetched dataset</label>
+						
+						<div class="col-sm-9">
+						
+							<script type="text/javascript">
+								jQuery(document).ready(function($)
+								{
+									var names = new Bloodhound({
+										datumTokenizer: Bloodhound.tokenizers.obj.whitespace('name'),
+										queryTokenizer: Bloodhound.tokenizers.whitespace,
+										limit: 10,
+										prefetch: {
+											url: 'data/names.json',
+											filter: function(list) 
+											{
+												return $.map(list, function(name) { return { name: name }; });
+											}
+										}
+									});
+									
+									names.initialize();
+									
+									$('#typeahead-2').typeahead(null, {
+										name: 'names',
+										displayKey: 'name',
+										source: names.ttAdapter()
+									});
+								});
+							</script>
+							
+							<div class="input-group">
+								<span class="input-group-addon">
+									<i class="fa-user"></i>
+								</span>
+								<input type="text" class="form-control" id="typeahead-2" placeholder="Enter your name" />
+							</div>
+							
+						</div>
+					</div>
+					
+					<div class="form-group-separator"></div>
+					
+					<div class="form-group">
+						<label class="col-sm-3 control-label" for="tagsinput-2">Remote data suggestion</label>
+						
+						<div class="col-sm-9">
+						
+							<script type="text/javascript">
+								jQuery(document).ready(function($)
+								{	
+									var name_randomizer = new Bloodhound({
+										datumTokenizer: Bloodhound.tokenizers.obj.whitespace('value'),
+										queryTokenizer: Bloodhound.tokenizers.whitespace,
+										// You can also prefetch suggestions
+										// prefetch: 'data/typeahead-generate.php',
+										remote: 'data/typeahead-generate.php?q=%QUERY'
+									});
+									
+									name_randomizer.initialize();
+									
+									$('#typeahead-3').typeahead({
+										hint: true,
+										highlight: true
+									}, {
+										name: 'string-randomizer',
+										displayKey: 'value',
+										source: name_randomizer.ttAdapter()
+									});
+								});
+							</script>
+							
+							<input type="text" class="form-control" id="typeahead-3" placeholder="Type something" />
+							
+						</div>
+					</div>
+					
+					<div class="form-group-separator"></div>
+					
+					<div class="form-group">
+						<label class="col-sm-3 control-label" for="tagsinput-2">Templating suggestions</label>
+						
+						<div class="col-sm-9">
+						
+							<script type="text/javascript">
+								jQuery(document).ready(function($)
+								{	
+									var harry_potter_movies = new Bloodhound({
+										datumTokenizer: Bloodhound.tokenizers.obj.whitespace('name'),
+										queryTokenizer: Bloodhound.tokenizers.whitespace,
+										remote: 'data/typeahead-hp-movies.php?q=%QUERY'
+									});
+									
+									harry_potter_movies.initialize();
+									
+									$('#typeahead-4').typeahead(null, {
+										name: 'harry-potter-movies',
+										displayKey: 'value',
+										source: harry_potter_movies.ttAdapter(),
+										templates: {
+											empty: [
+												'<div class="empty-message">',
+												'We cannot find this movie title',
+												'</div>'
+											].join('\n'),
+											suggestion: Handlebars.compile('<p class="clearfix"><img src="data/{{cover}}" class="img-responsive pull-left" width="30" style="margin-right:10px;" /><strong>{{value}}</strong> &mdash; {{year}}<br /><span style="display:inline-block; height: 22px; overflow: hidden; white-space:nowrap; text-overflow:ellipsis; max-width: 400px;">{{desc}}</span></p>')
+										}
+									})
+									.bind('typeahead:opened', function()
+									{
+										$(this).data('ttTypeahead').dropdown.$menu.addClass('overflow-hidden').perfectScrollbar();
+									})
+									.on('keyup', function()
+									{
+										$(this).data('ttTypeahead').dropdown.$menu.perfectScrollbar('update');
+									});
+								});
+							</script>
+							
+							<input type="text" class="form-control" id="typeahead-4" placeholder="Which Harry Potter movie do you like?" />
+							
+						</div>
+					</div>
+				
+				</form>
+			
+			</div>
+		</div>
+	
+	</div>
+</div>
+
+
+<div class="row">
+	<div class="col-sm-12">
+		
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title">Date Picker</h3>
+				<div class="panel-options">
+					<a href="" data-toggle="panel">
+						<span class="collapse-icon">&ndash;</span>
+						<span class="expand-icon">+</span>
+					</a>
+					<a href="" data-toggle="remove">
+						&times;
+					</a>
+				</div>
+			</div>
+			<div class="panel-body">
+				
+				<form role="form" class="form-horizontal">
+					
+					<div class="form-group">
+						<label class="col-sm-3 control-label">Date Picker (inline)</label>
+						
+						<div class="col-sm-5">
+							
+							<div class="datepicker"></div><!-- add class "no-border" to remove the outline it -->
+							
+						</div>
+					</div>
+					
+					<div class="form-group-separator"></div>
+					
+					<div class="form-group">
+						<label class="col-sm-3 control-label">Date Picker (popup)</label>
+						
+						<div class="col-sm-9">
+							<div class="input-group">
+								<input type="text" class="form-control datepicker" data-format="D, dd MM yyyy">
+								
+								<div class="input-group-addon">
+									<a href=""><i class="linecons-calendar"></i></a>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					<div class="form-group-separator"></div>
+					
+					<div class="form-group">
+						<label class="col-sm-3 control-label">Date Picker (start/end date)</label>
+						
+						<div class="col-sm-9">
+							<input type="text" class="form-control datepicker" data-start-date="-2d" data-end-date="+1w">
+						</div>
+					</div>
+					
+					<div class="form-group-separator"></div>
+					
+					<div class="form-group">
+						<label class="col-sm-3 control-label">Date Picker (disabled days Mo, We)</label>
+						
+						<div class="col-sm-9">
+							<input type="text" class="form-control datepicker" data-disabled-days="1,3">
+						</div>
+					</div>
+					
+					<div class="form-group-separator"></div>
+					
+					<div class="form-group">
+						<label class="col-sm-3 control-label">2 Clicks Date Select</label>
+						
+						<div class="col-sm-9">
+							<input type="text" class="form-control datepicker" data-start-view="1">
+						</div>
+					</div>
+					
+					<div class="form-group-separator"></div>
+					
+					<div class="form-group">
+						<label class="col-sm-3 control-label">3 Clicks Date Select</label>
+						
+						<div class="col-sm-9">
+							<input type="text" class="form-control datepicker" data-start-view="2">
+						</div>
+					</div>
+					
+				</form>
+			
+			</div>
+		</div>
+	
+	</div>
+</div>
+
+
+<div class="row">
+	<div class="col-sm-12">
+		
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title">Time Picker</h3>
+				<div class="panel-options">
+					<a href="" data-toggle="panel">
+						<span class="collapse-icon">&ndash;</span>
+						<span class="expand-icon">+</span>
+					</a>
+					<a href="" data-toggle="remove">
+						&times;
+					</a>
+				</div>
+			</div>
+			<div class="panel-body">
+				
+				<form role="form" class="form-horizontal">
+					
+					<div class="form-group">
+						<label class="col-sm-3 control-label">Time Picker (Simple)</label>
+						
+						<div class="col-sm-2">
+							<div class="input-group">
+								<div class="input-group-addon">
+									<i class="linecons-clock"></i>
+								</div>
+								<input type="text" class="form-control timepicker" />
+							</div>
+						</div>
+					</div>
+					
+					<div class="form-group-separator"></div>
+					
+					<div class="form-group">
+						<label class="col-sm-3 control-label">Time Picker (input-group)</label>
+						
+						<div class="col-sm-2">
+							<div class="input-group input-group-minimal">
+								<input type="text" class="form-control timepicker" data-template="dropdown" data-show-seconds="true" data-default-time="11:25 AM" data-show-meridian="true" data-minute-step="5" data-second-step="5" />
+								
+								<div class="input-group-addon">
+									<a href=""><i class="linecons-clock"></i></a>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					<div class="form-group-separator"></div>
+					
+					<div class="form-group">
+						<label class="col-sm-3 control-label">Time Picker (Dropdown)</label>
+						
+						<div class="col-sm-3">
+							<input type="text" class="form-control timepicker" data-template="dropdown" data-show-seconds="true" data-default-time="11:25 AM" data-show-meridian="true" data-minute-step="5" />
+						</div>
+					</div>
+					
+					<div class="form-group-separator"></div>
+					
+					<div class="form-group">
+						<label class="col-sm-3 control-label">Date &amp; Time Picker</label>
+						
+						<div class="col-sm-4">
+							
+							<div class="date-and-time">
+								<input type="text" class="form-control datepicker" data-format="D, dd MM yyyy">
+								<input type="text" class="form-control timepicker" data-template="dropdown" data-show-seconds="true" data-default-time="11:25 AM" data-show-meridian="true" data-minute-step="5" data-second-step="5" />
+							</div>
+						</div>
+					</div>
+				</form>
+				
+			</div>
+		</div>
+	
+	</div>
+</div>
+
+
+<div class="row">
+	<div class="col-sm-12">
+		
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title">Date Range Picker</h3>
+				<div class="panel-options">
+					<a href="" data-toggle="panel">
+						<span class="collapse-icon">&ndash;</span>
+						<span class="expand-icon">+</span>
+					</a>
+					<a href="" data-toggle="remove">
+						&times;
+					</a>
+				</div>
+			</div>
+			<div class="panel-body">
+				
+				<form role="form" class="form-horizontal">
+					
+					<div class="form-group">
+						<label class="col-sm-3 control-label" for="field-1">Date Range Picker</label>
+						
+						<div class="col-sm-9">
+							
+							<input type="text" id="field-1" class="form-control daterange" />
+							
+						</div>
+					</div>
+					
+					<div class="form-group-separator"></div>
+					
+					<div class="form-group">
+						<label class="col-sm-3 control-label" for="field-2">Selected Date Range</label>
+						
+						<div class="col-sm-9">
+							
+							<input type="text" id="field-2" class="form-control daterange" data-format="YYYY-MM-DD" data-start-date="2013-08-02" data-end-date="2013-08-15" data-separator="," />
+							
+						</div>
+					</div>
+					
+					<div class="form-group-separator"></div>
+					
+					<div class="form-group">
+						<label class="col-sm-3 control-label" for="field-3">Disabled Date Range</label>
+						
+						<div class="col-sm-9">
+							
+							<input type="text" id="field-3" class="form-control daterange" data-min-date="12-01-2014" data-max-date="12-12-2014" />
+							
+						</div>
+					</div>
+					
+					<div class="form-group-separator"></div>
+					
+					<div class="form-group">
+						<label class="col-sm-3 control-label" for="field-4">Date Range Callback</label>
+						
+						<div class="col-sm-9">
+							
+							<input type="text" id="field-4" class="form-control daterange" data-callback />
+							
+						</div>
+					</div>
+					
+					<div class="form-group-separator"></div>
+					
+					<div class="form-group">
+						<label class="col-sm-3 control-label" for="field-5">Date Range with Timepicker</label>
+						
+						<div class="col-sm-9">
+							
+							<input type="text" id="field-5" class="form-control daterange" data-time-picker="true" data-time-picker-increment="5" data-format="MM/DD/YYYY h:mm A" />
+							
+						</div>
+					</div>
+					
+					<div class="form-group-separator"></div>
+					
+					<div class="form-group">
+						<label class="col-sm-3 control-label">Date Range Inline</label>
+						
+						<div class="col-sm-9">
+							
+														<div class="daterange daterange-inline" data-format="MMMM D, YYYY" data-start-date="November 22, 2014" data-end-date="December 6, 2014">
+								<i class="fa-calendar"></i>
+								<span>November 22, 2014 - December 6, 2014</span>
+							</div>
+							
+						</div>
+					</div>
+					
+					<div class="form-group-separator"></div>
+					
+					<div class="form-group">
+						<label class="col-sm-3 control-label">Date Range w/ Predefined Ranges</label>
+						
+						<div class="col-sm-9">
+							
+														<div class="daterange daterange-inline add-ranges" data-format="MMMM D, YYYY" data-start-date="November 24, 2014" data-end-date="December 13, 2014">
+								<i class="fa-calendar"></i>
+								<span>November 24, 2014 - December 13, 2014</span>
+							</div>
+							
+						</div>
+					</div>
+					
+				</form>
+			
+			</div>
+		</div>
+	
+	</div>
+</div>
+
+
+<div class="row">
+	<div class="col-sm-12">
+		
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title">Color Picker</h3>
+				<div class="panel-options">
+					<a href="" data-toggle="panel">
+						<span class="collapse-icon">&ndash;</span>
+						<span class="expand-icon">+</span>
+					</a>
+					<a href="" data-toggle="remove">
+						&times;
+					</a>
+				</div>
+			</div>
+			<div class="panel-body">
+				
+				<form role="form" class="form-horizontal">
+					
+					<div class="form-group">
+						<label class="col-sm-3 control-label">Color Picker (Simple)</label>
+						
+						<div class="col-sm-9">
+							<input type="text" class="form-control colorpicker" />
+						</div>
+					</div>
+					
+					<div class="form-group-separator"></div>
+					
+					<div class="form-group">
+						<label class="col-sm-3 control-label">Color Picker (RGBA)</label>
+						
+						<div class="col-sm-9">
+							<input type="text" class="form-control colorpicker" data-format="rgba" />
+						</div>
+					</div>
+					
+					<div class="form-group-separator"></div>
+					
+					<div class="form-group">
+						<label class="col-sm-3 control-label">Color Picker (Horizontal)</label>
+						
+						<div class="col-sm-9">
+							<input type="text" class="form-control colorpicker" data-horizontal="true" />
+						</div>
+					</div>
+					
+					<div class="form-group-separator"></div>
+					
+					<div class="form-group">
+						<label class="col-sm-3 control-label">Color Picker Droplet</label>
+						
+						<div class="col-sm-2">
+							<div class="input-group">
+								<div class="input-group-addon">
+									<a href=""><i class="linecons-eye"></i></a>
+								</div>
+								
+								<input type="text" class="form-control colorpicker" data-format="hex" />
+							</div>
+						</div>
+					</div>
+					
+					<div class="form-group-separator"></div>
+					
+					<div class="form-group">
+						<label class="col-sm-3 control-label">Color Picker Color Preview</label>
+						
+						<div class="col-sm-2">
+							<div class="input-group">
+								<input type="text" class="form-control colorpicker" data-format="hex" value="#5a3d3d" />
+								
+								<div class="input-group-addon">
+									<i class="color-preview"></i>
+								</div>
+							</div>
+						</div>
+					</div>
+				
+				</form>
+			
+			</div>
+		</div>
+	
+	</div>
+</div>
+
+
+<div class="row">
+	<div class="col-sm-12">
+		
+		<a href="#/app/forms-icheck" class="btn btn-secondary">iCheck replacement is also integrated on Xenon, click here to see the examples <i class="fa-angle-right"></i></a>
+		
+	</div>
+</div>

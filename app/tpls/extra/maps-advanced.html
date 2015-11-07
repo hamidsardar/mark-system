@@ -1,0 +1,188 @@
+
+
+	<page-title ng-if="layoutOptions.pageTitles" title="Google Map" description="Full page Google Map with interactive toolbar"></page-title>
+
+
+<div class="google-map-env fill">
+	
+	<div class="gmap full-page-google-map">
+		<div id="map-1"></div>
+	</div>
+	
+	<!-- Map Toolbar -->
+	<div class="map-toolbar">
+		<div class="row">
+			<div class="col-sm-4">
+				
+				<form role="form" method="post" id="address-search">
+					<div class="input-group input-group-minimal">
+						<span class="input-group-addon">
+							<i class="fa-map-marker"></i>
+						</span>
+						<input type="text" class="form-control" placeholder="Enter address">
+						<span class="input-group-btn">
+							<button type="submit" class="btn btn-white">Search</button>
+						</span>
+					</div>
+				</form>
+				
+			</div>
+			<div class="col-sm-8 text-right">
+				
+				<div class="btn-group">
+					<button type="button" class="btn btn-white" id="map-unzoom">-</button>
+					<button type="button" class="btn btn-white" id="map-resetzoom">Reset</button>
+					<button type="button" class="btn btn-white" id="map-zoom">+</button>
+				</div>
+				
+				&nbsp;
+				
+				<a href="" class="btn btn-info" id="go-sthlm">Go to Stockholm</a>
+				<a href="" class="btn btn-red" id="go-bln">Go to Berlin</a>
+				
+			</div>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+loadGoogleMaps( 3 ).done(function()
+{
+
+	var map;
+	var geocoder = new google.maps.Geocoder();
+
+	var markers = [];
+	var iterator = 0;
+	
+	var berlin = new google.maps.LatLng(52.520816, 13.410186),
+		stockholm = new google.maps.LatLng(59.32522, 18.07002);
+	
+	var neighborhoods = [
+		new google.maps.LatLng(52.511467, 13.447179),
+		new google.maps.LatLng(52.549061, 13.422975),
+		new google.maps.LatLng(52.497622, 13.396110),
+		new google.maps.LatLng(52.517683, 13.394393),
+		new google.maps.LatLng(52.530843, 13.382721),
+		new google.maps.LatLng(52.514549, 13.350105),
+		new google.maps.LatLng(52.534394, 13.340492),
+	];
+	
+	function initialize()
+	{
+		var mapOptions = {
+			zoom: 12,
+			center: berlin
+		};
+		
+		// Calculate Height
+		var el = document.getElementById('map-1'),
+			doc_height = 
+				$(document).height() - 10 -
+				$(".main-content > .user-info-navbar").outerHeight() - 
+				$(".main-content > .page-title").outerHeight() -
+				$(".google-map-env .map-toolbar").outerHeight();
+		
+		// Adjust map height to fit the document contianer
+		el.style.height = doc_height + 'px';
+		
+		map = new google.maps.Map(el, mapOptions);
+		
+		for (var i = 0; i < neighborhoods.length; i++)
+		{
+			setTimeout(function() {
+				addMarker();
+			}, i * 200 + 200);
+		}
+			
+		// Stockholm Marker
+		new google.maps.Marker({
+			map: map,
+			position: stockholm,
+			draggable: true
+		});
+	}
+	
+	function addMarker()
+	{
+		markers.push(new google.maps.Marker({
+			position: neighborhoods[iterator],
+			map: map,
+			draggable: true,
+			animation: google.maps.Animation.DROP
+		}));
+		
+		iterator++;
+	}
+
+		initialize();
+		
+	// Toolbar
+	$("#go-sthlm").on('click', function(ev)
+	{
+		ev.preventDefault();
+		
+		map.panTo(stockholm);
+	});
+	
+	$("#go-bln").on('click', function(ev)
+	{
+		ev.preventDefault();
+		
+		map.panTo(berlin);
+	});
+	
+	$("#map-unzoom").on('click', function(ev)
+	{
+		ev.preventDefault();
+		
+		map.setZoom(map.getZoom() - 1);
+	});
+	
+	$("#map-resetzoom").on('click', function(ev)
+	{
+		ev.preventDefault();
+		
+		map.setZoom(12);
+	});
+	
+	$("#map-zoom").on('click', function(ev)
+	{
+		ev.preventDefault();
+		
+		map.setZoom(map.getZoom() + 1);
+	});
+	
+	$("#address-search").submit(function(ev)
+	{
+		ev.preventDefault();
+		
+		var $inp = $(this).find('.form-control'),
+			address = $inp.val().trim();
+		
+		$inp.prev().find('i').addClass('fa-spinner fa-spin');
+		
+		if(address.length != 0)
+		{
+			geocoder.geocode( { 'address': address}, function(results, status)
+			{
+				$inp.prev().find('i').removeClass('fa-spinner fa-spin');
+				
+				if(status == google.maps.GeocoderStatus.OK)
+				{
+					map.setCenter(results[0].geometry.location);
+					
+					var marker = new google.maps.Marker({
+						map: map,
+						position: results[0].geometry.location,
+						draggable: true
+					});
+				
+				} else {
+					alert('Geocode was not successful for the following reason: ' + status);
+				}
+			});
+		}
+	});
+});
+</script>

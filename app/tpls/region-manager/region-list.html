@@ -1,0 +1,52 @@
+<page-title ng-if="layoutOptions.pageTitles" title="Regions" description="Region Management"></page-title>
+
+<div class="row">
+
+	<div class="col-md-12">
+
+		<tabset>
+			<tab heading="All Regions">
+				<table class="table table-hover members-table middle-align">
+					<thead>
+						<tr class="replace-inputs">
+							<th>Name</th>
+							<th>Manager</th>
+              <th ng-show="currentUser.isAdmin">Customer</th>
+							<th>Settings</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="region in data" ng-hide="region.deleted">
+							<td class="user-name">
+								<a href="" class="name" ng-click="editRegion(region.regionID)">
+								{{ region.name }}
+								</a>
+							</td>
+							<td class="user-name">{{ region.manager }}</td>
+              <td class="user-name" ng-show="currentUser.isAdmin">{{ region.customer }}</td>
+							<td class="action-links">
+								<a href="" class="edit" ng-click="editRegion(region.regionID)">
+									<i class="linecons-pencil"></i>
+									Edit Region
+								</a>
+		
+								<a href="" class="delete" ng-click="deleteRegion(region)">
+									<i class="linecons-trash"></i>
+									Delete
+								</a>
+								
+							</td>
+						</tr>
+						
+					</tbody>
+					
+				</table>
+				<div class="selected-actions" >
+					<a href="#/app/region-manager-add-region" class="edit" style="color: green">Add a Region</a>								
+				</div>
+			</tab>
+		</tabset>
+							
+	</div>
+	
+</div>

@@ -1,0 +1,258 @@
+
+
+	<page-title ng-if="layoutOptions.pageTitles" title="Nestable Lists" description="Drag to move and sort lists between groups"></page-title>
+
+		
+<div class="panel panel-default">
+	<div class="panel-heading">Simple nesting example</div>
+	<div class="panel-body">
+		
+		<div class="row">
+			<div class="col-sm-8">
+		
+				<script type="text/javascript">
+					jQuery(document).ready(function($)
+					{
+						$("#nestable-list-1").on('nestable-stop', function(ev)
+						{
+							var serialized = $(this).data('nestable').serialize(),
+								str = '';
+							
+							//console.log( $(this).data('nestable').list() );
+							str = iterateList(serialized, 0);
+							//iterateList(serialized);
+							
+							$("#nestable-list-1-ev").val(str);
+						});
+					});
+					
+					function iterateList(items, depth)
+					{
+						var str = '';
+						
+						if( ! depth)
+							depth = 0;
+						
+						console.log(items);
+						
+						jQuery.each(items, function(i, obj)
+						{
+							str += '[ID: ' + obj.itemId + ']\t' + repeat('—', depth+1) + ' ' + obj.item;
+							str += '\n';
+							
+							if(obj.children)
+							{
+								str += iterateList(obj.children, depth+1);
+							}
+						});
+						
+						return str;
+					}
+					
+					function repeat(s, n)
+					{
+						var a = [];
+						while(a.length < n)
+						{
+							a.push(s);
+						}
+						return a.join('');
+					}
+					
+										jQuery.UIkit.nestable(jQuery('#nestable-list-1'));
+					jQuery.UIkit.nestable(jQuery('.grouped-nestables'), {
+						group:'veggie-fruits',
+						maxDepth:1
+					});
+										
+				</script>
+				<ul id="nestable-list-1" class="uk-nestable" >
+					<li data-item="Item 1" data-item-id="a">
+						<div class="uk-nestable-item">
+						    <div class="uk-nestable-handle"></div>
+						    <div data-nestable-action="toggle"></div>
+						    <div class="list-label">Item 1</div>
+						</div>
+					</li>
+					<li data-item="Item 2" data-item-id="b">
+						<div class="uk-nestable-item">
+						    <div class="uk-nestable-handle"></div>
+						    <div data-nestable-action="toggle"></div>
+						    <div class="list-label">Item 2</div>
+						</div>
+						
+						<ul>					
+							<li data-item="Item 7" data-item-id="g">
+								<div class="uk-nestable-item">
+								    <div class="uk-nestable-handle"></div>
+								    <div data-nestable-action="toggle"></div>
+									<div class="list-label">Item 7</div>
+								</div>
+								
+								<ul>					
+									<li data-item="Item 8" data-item-id="h">
+										<div class="uk-nestable-item">
+										    <div class="uk-nestable-handle"></div>
+										    <div data-nestable-action="toggle"></div>
+											<div class="list-label">Item 8</div>
+										</div>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+					<li data-item="Item 3" data-item-id="c">
+						<div class="uk-nestable-item">
+						    <div class="uk-nestable-handle"></div>
+						    <div data-nestable-action="toggle"></div>
+						    <div class="list-label">Item 3</div>
+						</div>
+					</li>
+					<li data-item="Item 4" data-item-id="d">
+						<div class="uk-nestable-item">
+						    <div class="uk-nestable-handle"></div>
+						    <div data-nestable-action="toggle"></div>
+						    <div class="list-label">Item 4</div>
+						</div>
+					</li>
+					<li data-item="Item 5" data-item-id="e">
+						<div class="uk-nestable-item">
+						    <div class="uk-nestable-handle"></div>
+						    <div data-nestable-action="toggle"></div>
+						    <div class="list-label">Item 5</div>
+						</div>
+					</li>
+					<li data-item="Item 6" data-item-id="f">
+						<div class="uk-nestable-item">
+						    <div class="uk-nestable-handle"></div>
+						    <div data-nestable-action="toggle"></div>
+						    <div class="list-label">Item 6</div>
+						</div>
+					</li>
+				</ul>
+			
+			</div>
+			<div class="col-sm-4">
+				<textarea id="nestable-list-1-ev" class="form-control" rows="17" placeholder="Nestable Events"></textarea>
+			</div>
+		</div>
+		
+	</div>
+</div>
+
+
+<br />
+<p class="well">Grouping nestable lists, try moving items between the lists. Max depth is set to 1</p>
+
+<div class="row">
+	<div class="col-sm-6">
+				
+		<div class="panel panel-default">
+			<div class="panel-heading">Fruits</div>
+			<div class="panel-body">
+				
+				<ul class="uk-nestable grouped-nestables" >
+					<li>
+						<div class="uk-nestable-item">
+						    <div class="uk-nestable-handle"></div>
+						    <div data-nestable-action="toggle"></div>
+						    <div class="list-label">Pear</div>
+						</div>
+					</li>
+					<li>
+						<div class="uk-nestable-item">
+						    <div class="uk-nestable-handle"></div>
+						    <div data-nestable-action="toggle"></div>
+						    <div class="list-label">Apple</div>
+						</div>
+					</li>
+					<li>
+						<div class="uk-nestable-item">
+						    <div class="uk-nestable-handle"></div>
+						    <div data-nestable-action="toggle"></div>
+						    <div class="list-label">Cherry</div>
+						</div>
+					</li>
+					<li>
+						<div class="uk-nestable-item">
+						    <div class="uk-nestable-handle"></div>
+						    <div data-nestable-action="toggle"></div>
+						    <div class="list-label">Banana</div>
+						</div>
+					</li>
+					<li>
+						<div class="uk-nestable-item">
+						    <div class="uk-nestable-handle"></div>
+						    <div data-nestable-action="toggle"></div>
+						    <div class="list-label">Kiwi</div>
+						</div>
+					</li>
+					<li>
+						<div class="uk-nestable-item">
+						    <div class="uk-nestable-handle"></div>
+						    <div data-nestable-action="toggle"></div>
+						    <div class="list-label">Mango</div>
+						</div>
+					</li>
+				</ul>
+				
+			</div>
+		</div>
+		
+	</div>
+	<div class="col-sm-6">
+				
+		<div class="panel panel-default">
+			<div class="panel-heading">Vegetables</div>
+			<div class="panel-body">
+				
+				<ul class="uk-nestable grouped-nestables" >
+					<li>
+						<div class="uk-nestable-item">
+						    <div class="uk-nestable-handle"></div>
+						    <div data-nestable-action="toggle"></div>
+						    <div class="list-label">Cabbage</div>
+						</div>
+					</li>
+					<li>
+						<div class="uk-nestable-item">
+						    <div class="uk-nestable-handle"></div>
+						    <div data-nestable-action="toggle"></div>
+						    <div class="list-label">Carrot</div>
+						</div>
+					</li>
+					<li>
+						<div class="uk-nestable-item">
+						    <div class="uk-nestable-handle"></div>
+						    <div data-nestable-action="toggle"></div>
+						    <div class="list-label">Lettuce</div>
+						</div>
+					</li>
+					<li>
+						<div class="uk-nestable-item">
+						    <div class="uk-nestable-handle"></div>
+						    <div data-nestable-action="toggle"></div>
+						    <div class="list-label">Wasabi</div>
+						</div>
+					</li>
+					<li>
+						<div class="uk-nestable-item">
+						    <div class="uk-nestable-handle"></div>
+						    <div data-nestable-action="toggle"></div>
+						    <div class="list-label">Onion</div>
+						</div>
+					</li>
+					<li>
+						<div class="uk-nestable-item">
+						    <div class="uk-nestable-handle"></div>
+						    <div data-nestable-action="toggle"></div>
+						    <div class="list-label">Chaya</div>
+						</div>
+					</li>
+				</ul>
+				
+			</div>
+		</div>
+		
+	</div>
+</div>

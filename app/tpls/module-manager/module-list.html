@@ -1,0 +1,52 @@
+<page-title ng-if="layoutOptions.pageTitles" title="Modules" description="Module Management"></page-title>
+
+<div class="row">
+
+	<div class="col-md-12">
+
+		<tabset>
+			<tab heading="All Modules">
+				<table class="table table-hover members-table middle-align">
+					<thead>
+						<tr class="replace-inputs">
+							<th>Name</th>
+							<th>Link</th>
+							<th>Icon</th>
+							<th>Settings</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="module in data" ng-hide="module.deleted">
+							<td class="user-name">
+								<a href="" class="name" ng-click="editModule(module.moduleID)">
+								{{ module.name }}
+								</a>
+							</td>
+							<td class="user-name">{{ module.link }}</td>
+							<td class="user-name">{{ module.icon }}</td>
+							<td class="action-links">
+								<a href="" class="edit" ng-click="editModule(module.moduleID)">
+									<i class="linecons-pencil"></i>
+									Edit Module
+								</a>
+		
+								<a href="" class="delete" ng-click="deleteModule(module)">
+									<i class="linecons-trash"></i>
+									Delete
+								</a>
+								
+							</td>
+						</tr>
+						
+					</tbody>
+					
+				</table>
+				<div class="selected-actions" >
+					<a href="#/app/module-manager-add-module" class="edit" style="color: green">Add a Module</a>								
+				</div>
+			</tab>
+		</tabset>
+							
+	</div>
+	
+</div>

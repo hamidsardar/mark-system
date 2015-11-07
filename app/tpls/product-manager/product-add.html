@@ -1,0 +1,195 @@
+<page-title ng-if="layoutOptions.pageTitles" title="Add Product" description="Product Management"></page-title>
+
+<form name="myForm" method="post">
+	<div class="panel panel-headerless">
+		<div class="panel-body">
+
+			<div class="member-form-add-header">
+				<div class="row">
+					<div class="col-md-2 col-sm-4 pull-right-sm">
+
+						<div class="action-buttons">
+							<button type="submit" class="btn btn-block btn-secondary" ng-disabled="lock_form">Save Changes</button>
+							<!-- <button type="reset" class="btn btn-block btn-gray" ng-click="resetDefaults()">Reset to Default</button> -->
+						</div>
+
+					</div>
+					<div class="col-md-10 col-sm-8">
+					</div>
+				</div>
+			</div>
+
+
+			<div class="member-form-inputs">
+        <div class="row" ng-show="currentUser.isAdmin">
+          <div class="col-sm-3">
+            <label class="control-label">Customer</label>
+          </div>
+          <div class="col-sm-6">
+            <select class="form-control" name="customerID" id="ddl_customer" ng-model="product.customerID" ng-required="true && currentUser.isAdmin"
+               ng-options="x.userID as x.company for x in customers">
+               <option></option>
+            </select>
+          </div>
+          <div class="col-sm-3">
+            <span style="color:red" ng-show="myForm.customerID.$dirty && myForm.customerID.$invalid">
+              <span ng-show="myForm.customerID.$error.required">Customer is required.</span>
+            </span>
+          </div>
+        </div>
+				<!--
+        <div class="row">
+					<div class="col-sm-3">
+						<label class="control-label" for="name">Product Name</label>
+					</div>
+					<div class="col-sm-6">
+						<input type="text" class="form-control" name="name" id="name" value="" ng-model="product.name" ng-required="true"  maxlength="50" required/>
+					</div>
+					<div class="col-sm-3">
+						<span style="color:red" ng-show="myForm.name.$dirty && myForm.name.$invalid">
+							<span ng-show="myForm.name.$error.required">Product Name is required.</span>
+						</span>
+					</div>
+				</div>
+        -->
+				<div class="row">
+          <div class="col-sm-3">
+            <label class="control-label">Product No.</label>
+          </div>
+          <div class="col-sm-6">
+            <input type="text" class="form-control" name="number" id="number" value="" ng-model="product.number" ng-required="true"  maxlength="50" required/>
+          </div>
+          <div class="col-sm-3">
+            <span style="color:red" ng-show="myForm.number.$dirty && myForm.number.$invalid">
+              <span ng-show="myForm.number.$error.required">Product No is required.</span>
+            </span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-3">
+            <label class="control-label">Product Type</label>
+          </div>
+          <div class="col-sm-6">
+            <select class="form-control" name="producttypeID" id="ddl_producttype" ng-model="product.producttypeID" ng-required="true"
+               ng-options="x.producttypeID as x.name for x in producttypes">
+               <option></option>
+            </select>
+          </div>
+          <div class="col-sm-3">
+            <span style="color:red" ng-show="myForm.producttypeID.$dirty && myForm.producttypeID.$invalid">
+              <span ng-show="myForm.producttypeID.$error.required">Product Type is required.</span>
+            </span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-3">
+            <label class="control-label">Department</label>
+          </div>
+          <div class="col-sm-6">
+            <select class="form-control" name="departmentID" id="ddl_department" ng-model="product.departmentID" ng-required="true"
+               ng-options="x.departmentID as x.name for x in departments">
+               <option></option>
+            </select>
+          </div>
+          <div class="col-sm-3">
+            <span style="color:red" ng-show="myForm.departmentID.$dirty && myForm.departmentID.$invalid">
+              <span ng-show="myForm.departmentID.$error.required">Department is required.</span>
+            </span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-3">
+            <label class="control-label" for="upc">UPC</label>
+          </div>
+          <div class="col-sm-6">
+            <input type="text" class="form-control" name="upc" id="upc" value="" ng-model="product.upc" ng-required="true"  maxlength="50" required/>
+          </div>
+          <div class="col-sm-3">
+            <span style="color:red" ng-show="myForm.upc.$dirty && myForm.upc.$invalid">
+              <span ng-show="myForm.upc.$error.required">UPC is required.</span>
+            </span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-3">
+            <label class="control-label" for="style">Style No</label>
+          </div>
+          <div class="col-sm-6">
+            <input type="text" class="form-control" name="style" id="style" value="" ng-model="product.style" ng-required="true"  maxlength="50" required/>
+          </div>
+          <div class="col-sm-3">
+            <span style="color:red" ng-show="myForm.style.$dirty && myForm.style.$invalid">
+              <span ng-show="myForm.style.$error.required">Style No is required.</span>
+            </span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-3">
+            <label class="control-label" for="color">Color</label>
+          </div>
+          <div class="col-sm-6">
+            <input type="text" class="form-control" name="color" id="color" value="" ng-model="product.color" ng-required="true"  maxlength="50" required/>
+          </div>
+          <div class="col-sm-3">
+            <span style="color:red" ng-show="myForm.color.$dirty && myForm.color.$invalid">
+              <span ng-show="myForm.color.$error.required">Color is required.</span>
+            </span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-3">
+            <label class="control-label" for="size">Size</label>
+          </div>
+          <div class="col-sm-6">
+            <input type="text" class="form-control" name="size" id="size" value="" ng-model="product.size" ng-required="true"  maxlength="50" required/>
+          </div>
+          <div class="col-sm-3">
+            <span style="color:red" ng-show="myForm.size.$dirty && myForm.size.$invalid">
+              <span ng-show="myForm.size.$error.required">Size is required.</span>
+            </span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-3">
+            <label class="control-label" for="min_floor">Floor Min</label>
+          </div>
+          <div class="col-sm-6">
+            <input type="text" class="form-control" name="min_floor" id="min_floor" value="" ng-model="product.min_floor" ng-required="true"  maxlength="50" required/>
+          </div>
+          <div class="col-sm-3">
+            <span style="color:red" ng-show="myForm.min_floor.$dirty && myForm.min_floor.$invalid">
+              <span ng-show="myForm.min_floor.$error.required">Floor Min is required.</span>
+            </span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-3">
+            <label class="control-label" for="max_floor">Floor Max</label>
+          </div>
+          <div class="col-sm-6">
+            <input type="text" class="form-control" name="max_floor" id="max_floor" value="" ng-model="product.max_floor" ng-required="true"  maxlength="50" required/>
+          </div>
+          <div class="col-sm-3">
+            <span style="color:red" ng-show="myForm.max_floor.$dirty && myForm.max_floor.$invalid">
+              <span ng-show="myForm.max_floor.$error.required">Floor Max is required.</span>
+            </span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-3">
+            <label class="control-label" for="quantity">Display Qty</label>
+          </div>
+          <div class="col-sm-6">
+            <input type="text" class="form-control" name="quantity" id="quantity" value="" ng-model="product.quantity" ng-required="true"  maxlength="50" required/>
+          </div>
+          <div class="col-sm-3">
+            <span style="color:red" ng-show="myForm.quantity.$dirty && myForm.quantity.$invalid">
+              <span ng-show="myForm.quantity.$error.required">Display Qty is required.</span>
+            </span>
+          </div>
+        </div>
+			</div>
+
+		</div>
+	</div>
+</form>

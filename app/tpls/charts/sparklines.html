@@ -1,0 +1,580 @@
+
+
+	<page-title ng-if="layoutOptions.pageTitles" title="Sparklines" description="Data visualization widgets for your stats"></page-title>
+
+
+<div class="dx-warning hidden">
+	<div>
+		<h2>How to Include Charts Library in Xenon Theme</h2>
+
+		<p>The reason why you don't see charts like in the Xenon demo website is because of license restrictions from DevExpress company. <a href="http://js.devexpress.com/DevExtremeWeb/?folder=EULAs" target="_blank">Click here</a> to read license agreement.</p>
+		<p>Even that we have purchased the developer license we are not permitted to include the DevExtreme Web Charts JavaScript library in the default download file of Xenon theme, however you can include DevExpress Charts library manually and takes just few minutes:</p>
+
+		<ol>
+			<li>Download <strong>DevExtreme Web</strong> JavaScript library by clicking <a href="https://go.devexpress.com/DevExpressDownload_DevExtremeWebTrial.aspx" class="text-bold">here</a>. If the link doesn't work, then <a href="http://js.devexpress.com/Buy/" target="_parent"><strong>click this one</strong></a> and choose DevExtreme Web package to download.</li>
+			<li>Extract the downloaded archive. There you will find <strong>Lib/</strong> folder. <strong>Copy</strong> the folders inside.</li>
+			<li><strong>Paste</strong> copied files to <strong>assets/js/devexpress-web-14.1/</strong></li>
+			<li>You are all set! Charts will look the same just like in the demo website.</li>
+		</ol>
+	</div>
+</div>
+<script type="text/javascript">
+	jQuery(document).ready(function($)
+	{
+		if( ! $.isFunction($.fn.dxChart))
+			$(".dx-warning").removeClass('hidden');
+	});
+</script>
+
+
+<div class="row">
+	<div class="col-sm-12">
+	
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title">Sparkline Charts</h3>
+				<div class="panel-options">
+					<a href="" data-toggle="panel">
+						<span class="collapse-icon">&ndash;</span>
+						<span class="expand-icon">+</span>
+					</a>
+					<a href="" data-toggle="remove">
+						&times;
+					</a>
+				</div>
+			</div>
+			<div class="panel-body">	
+				<script type="text/javascript">
+					jQuery(document).ready(function($)
+					{
+						if( ! $.isFunction($.fn.dxChart))
+							return;
+							
+						var oilOptions = {
+							dataSource: getOilCosts(),
+							argumentField: 'month',
+							valueField: '2010',
+							type: 'line',
+							showMinMax: true,
+							lineColor: '#f7aa47',
+							minColor: '#4fcdfc',
+							maxColor: '#d5080f',
+						},
+						goldOptions = {
+							dataSource: getGoldCosts(),
+							argumentField: 'month',
+							valueField: '2010',
+							type: 'spline',
+							lineWidth: 3,
+							lineColor: '#68b828',
+							minColor: '#00b19d',
+							maxColor: '#7c38bc',
+							showMinMax: true,
+							showFirstLast: false
+						},
+						silverOptions = {
+							dataSource: getSilverCosts(),
+							argumentField: 'month',
+							valueField: '2010',
+							lineColor: '#7c38bc',
+							firstLastColor: '#ccc',
+							pointSize: 6,
+							pointSymbol: 'square',
+							pointColor: '#333',
+							type: 'stepline'
+						};
+						
+						function getOilCosts() {
+							return [{ month: 1, 2010: 77, 2011: 93, 2012: 107 },
+							{ month: 2, 2010: 72, 2011: 101, 2012: 112 },
+							{ month: 3, 2010: 79, 2011: 115, 2012: 123 },
+							{ month: 4, 2010: 82, 2011: 116, 2012: 123 },
+							{ month: 5, 2010: 86, 2011: 124, 2012: 116 },
+							{ month: 6, 2010: 73, 2011: 115, 2012: 102 },
+							{ month: 7, 2010: 73, 2011: 110, 2012: 94 },
+							{ month: 8, 2010: 77, 2011: 117, 2012: 105 },
+							{ month: 9, 2010: 76, 2011: 113, 2012: 113 },
+							{ month: 10, 2010: 81, 2011: 103, 2012: 111 },
+							{ month: 11, 2010: 83, 2011: 110, 2012: 107 },
+							{ month: 12, 2010: 89, 2011: 109, 2012: 110 }];
+						}
+						function getGoldCosts() {
+							return [{ month: 1, 2010: 1115, 2011: 1358, 2012: 1661 },
+							{ month: 2, 2010: 1099, 2011: 1375, 2012: 1742 },
+							{ month: 3, 2010: 1114, 2011: 1423, 2012: 1677 },
+							{ month: 4, 2010: 1150, 2011: 1486, 2012: 1650 },
+							{ month: 5, 2010: 1205, 2011: 1511, 2012: 1589 },
+							{ month: 6, 2010: 1235, 2011: 1529, 2012: 1602 },
+							{ month: 7, 2010: 1193, 2011: 1573, 2012: 1593 },
+							{ month: 8, 2010: 1220, 2011: 1765, 2012: 1634 },
+							{ month: 9, 2010: 1272, 2011: 1771, 2012: 1750 },
+							{ month: 10, 2010: 1345, 2011: 1672, 2012: 1745 },
+							{ month: 11, 2010: 1370, 2011: 1741, 2012: 1720 },
+							{ month: 12, 2010: 1392, 2011: 1643, 2012: 1684 }];
+						};
+						function getSilverCosts() {
+							 return [{ month: 1, 2010: 17, 2011: 30, 2012: 27 },
+							{ month: 2, 2010: 28, 2011: 28, 2012: 33 },
+							{ month: 3, 2010: 34, 2011: 34, 2012: 35 },
+							{ month: 4, 2010: 37, 2011: 37, 2012: 32 },
+							{ month: 5, 2010: 47, 2011: 47, 2012: 30 },
+							{ month: 6, 2010: 37, 2011: 37, 2012: 28 },
+							{ month: 7, 2010: 34, 2011: 34, 2012: 27 },
+							{ month: 8, 2010: 40, 2011: 40, 2012: 27 },
+							{ month: 9, 2010: 41, 2011: 41, 2012: 31 },
+							{ month: 10, 2010: 30, 2011: 30, 2012: 34 },
+							{ month: 11, 2010: 34, 2011: 34, 2012: 31 },
+							{ month: 12, 2010: 32, 2011: 32, 2012: 33 }];
+						 };
+						
+						$('.line2010').dxSparkline(oilOptions);
+						$('.spline2010').dxSparkline(goldOptions);
+						$('.stepline2010').dxSparkline(silverOptions);
+						
+						$('.line2011').dxSparkline($.extend(oilOptions, { valueField: '2011' }));
+						$('.spline2011').dxSparkline($.extend(goldOptions, { valueField: '2011' }));
+						$('.stepline2011').dxSparkline($.extend(silverOptions, { valueField: '2011' }));
+						
+						$('.line2012').dxSparkline($.extend(oilOptions, { valueField: '2012' }));
+						$('.spline2012').dxSparkline($.extend(goldOptions, { valueField: '2012' }));
+						$('.stepline2012').dxSparkline($.extend(silverOptions, { valueField: '2012' }));
+					});
+				</script>
+				
+				<table class="table table-bordered table-hover text-center middle-align">
+				    <tr>
+				        <th></th>
+				        <th width="25%">Oil (USD/barrel)</th>
+				        <th width="25%">Gold (USD/troy ounce)</th>
+				        <th width="25%">Silver (USD/troy ounce)</th>
+				    </tr>
+				    <tr>
+				        <th>2010</th>
+				        <td>
+				            <div class="sparkline line2010"></div>
+				        </td>
+				        <td>
+				            <div class="sparkline spline2010"></div>
+				        </td>
+				        <td>
+				            <div class="sparkline stepline2010"></div>
+				        </td>
+				    </tr>
+				    <tr>
+				        <th>2011</th>
+				        <td>
+				            <div class="sparkline line2011"></div>
+				        </td>
+				        <td>
+				            <div class="sparkline spline2011"></div>
+				        </td>
+				        <td>
+				            <div class="sparkline stepline2011"></div>
+				        </td>
+				    </tr>
+				    <tr>
+				        <th>2012</th>
+				        <td>
+				            <div class="sparkline line2012"></div>
+				        </td>
+				        <td>
+				            <div class="sparkline spline2012"></div>
+				        </td>
+				        <td>
+				            <div class="sparkline stepline2012"></div>
+				        </td>
+				    </tr>
+				</table>
+			</div>
+			
+			<hr />
+			
+			<div class="panel-body">	
+				<script type="text/javascript">
+					jQuery(document).ready(function($)
+					{
+						var copOptions = {
+							dataSource: getCopperCosts(),
+							argumentField: 'month',
+							valueField: '2010',
+							type: 'area',
+							showMinMax: true,
+							lineColor: '#00b19d',
+							minColor: '#68b828',
+							maxColor: '#7c38bc',
+							firstLastColor: '#ccc'
+						},
+						nickOptions = {
+							dataSource: getNickelCosts(),
+							argumentField: 'month',
+							valueField: '2010',
+							type: 'splinearea',
+							lineColor: '#ff6264',
+							minColor: '#6babac',
+							maxColor: '#565077',
+							pointSize: 6,
+							showMinMax: true,
+							showFirstLast: false
+						},
+						palOptions = {
+							dataSource: getPalladiumCosts(),
+							argumentField: 'month',
+							valueField: '2010',
+							firstLastColor: '#4fcdfc',
+							lineColor: '#0e62c7',
+							lineWidth: 3,
+							pointColor: '#4fcdfc',
+							pointSymbol: 'polygon',
+							type: 'steparea'
+						};
+						
+						function getCopperCosts() {
+							return [{ month: 1, 2010: 7341, 2011: 9585, 2012: 7501 },
+							{ month: 2, 2010: 7016, 2011: 10026, 2012: 8470 },
+							{ month: 3, 2010: 7202, 2011: 9889, 2012: 8591 },
+							{ month: 4, 2010: 7851, 2011: 9460, 2012: 8459 },
+							{ month: 5, 2010: 7481, 2011: 9373, 2012: 8320 },
+							{ month: 6, 2010: 6532, 2011: 9108, 2012: 7465 },
+							{ month: 7, 2010: 6498, 2011: 9295, 2012: 7475 },
+							{ month: 8, 2010: 7191, 2011: 9834, 2012: 7430 },
+							{ month: 9, 2010: 7596, 2011: 9121, 2012: 7614 },
+							{ month: 10, 2010: 8057, 2011: 7125, 2012: 8245 },
+							{ month: 11, 2010: 8373, 2011: 7871, 2012: 7727 },
+							{ month: 12, 2010: 8636, 2011: 7725, 2012: 7880 }];
+						};
+						function getNickelCosts() {
+							return [{ month: 1, 2010: 18974, 2011: 24298, 2012: 18322 },
+							{ month: 2, 2010: 18162, 2011: 27929, 2012: 21093 },
+							{ month: 3, 2010: 20535, 2011: 28802, 2012: 19701 },
+							{ month: 4, 2010: 24562, 2011: 26142, 2012: 17695 },
+							{ month: 5, 2010: 26131, 2011: 26753, 2012: 17549 },
+							{ month: 6, 2010: 19278, 2011: 23055, 2012: 16436 },
+							{ month: 7, 2010: 19475, 2011: 22870, 2012: 16382 },
+							{ month: 8, 2010: 20701, 2011: 24388, 2012: 15687 },
+							{ month: 9, 2010: 21266, 2011: 21845, 2012: 16085 },
+							{ month: 10, 2010: 23358, 2011: 18346, 2012: 18250 },
+							{ month: 11, 2010: 23150, 2011: 18822, 2012: 16083 },
+							{ month: 12, 2010: 23282, 2011: 17320, 2012: 17104 }];
+						};
+						function getPalladiumCosts() {
+							return [{ month: 1, 2010: 398, 2011: 788, 2012: 649 },
+							{ month: 2, 2010: 422, 2011: 817, 2012: 698 },
+							{ month: 3, 2010: 431, 2011: 812, 2012: 713 },
+							{ month: 4, 2010: 481, 2011: 760, 2012: 654 },
+							{ month: 5, 2010: 551, 2011: 774, 2012: 665 },
+							{ month: 6, 2010: 449, 2011: 775, 2012: 609 },
+							{ month: 7, 2010: 442, 2011: 750, 2012: 584 },
+							{ month: 8, 2010: 482, 2011: 827, 2012: 580 },
+							{ month: 9, 2010: 517, 2011: 776, 2012: 632 },
+							{ month: 10, 2010: 566, 2011: 624, 2012: 657 },
+							{ month: 11, 2010: 630, 2011: 651, 2012: 601 },
+							{ month: 12, 2010: 737, 2011: 615, 2012: 675 }];
+						};
+						
+						
+						$('.area2010').dxSparkline(copOptions);
+						$('.splinearea2010').dxSparkline(nickOptions);
+						$('.steparea2010').dxSparkline(palOptions);
+						
+						$('.area2011').dxSparkline($.extend(copOptions, { valueField: '2011' }));
+						$('.splinearea2011').dxSparkline($.extend(nickOptions, { valueField: '2011' }));
+						$('.steparea2011').dxSparkline($.extend(palOptions, { valueField: '2011' }));
+						
+						$('.area2012').dxSparkline($.extend(copOptions, { valueField: '2012' }));
+						$('.splinearea2012').dxSparkline($.extend(nickOptions, { valueField: '2012' }));
+						$('.steparea2012').dxSparkline($.extend(palOptions, { valueField: '2012' }));
+					});
+				</script>
+				
+				<table class="table table-bordered table-hover text-center middle-align">
+				    <tr>
+				        <th></th>
+				        <th width="25%">Copper (USD/ton)</th>
+				        <th width="25%">Nickel (USD/ton)</th>
+				        <th width="25%">Palladium (USD/troy ounce)</th>
+				    </tr>
+				    <tr>
+				        <th>2010</th>
+				        <td>
+				            <div class="sparkline area2010"></div>
+				        </td>
+				        <td>
+				            <div class="sparkline splinearea2010"></div>
+				        </td>
+				        <td>
+				            <div class="sparkline steparea2010"></div>
+				        </td>
+				    </tr>
+				    <tr>
+				        <th>2011</th>
+				        <td>
+				            <div class="sparkline area2011"></div>
+				        </td>
+				        <td>
+				            <div class="sparkline splinearea2011"></div>
+				        </td>
+				        <td>
+				            <div class="sparkline steparea2011"></div>
+				        </td>
+				    </tr>
+				    <tr>
+				        <th>2012</th>
+				        <td>
+				            <div class="sparkline area2012"></div>
+				        </td>
+				        <td>
+				            <div class="sparkline splinearea2012"></div>
+				        </td>
+				        <td>
+				            <div class="sparkline steparea2012"></div>
+				        </td>
+				    </tr>
+				</table>
+			</div>
+			
+			<hr />
+			
+			<div class="panel-body">	
+				<script type="text/javascript">
+					jQuery(document).ready(function($)
+					{
+						var source = new DevExpress.data.DataSource({
+							load: function(loadOptions) {
+								var d = $.Deferred();
+								$.getJSON('data/sparklineResourceData.json').done(function(data) {
+									var filteredData = DevExpress.data
+									  .query(data)
+									  .filter(loadOptions.filter)
+									  .toArray();
+									d.resolve(filteredData);
+								});
+								return d.promise();
+							},
+							filter: ['month', '<=', '12']
+						});
+						
+						var alumOptions = {
+							dataSource: source,
+							argumentField: 'month',
+							valueField: 'alum2010-2',
+							type: 'bar',
+							showMinMax: true
+						},
+						nickOptions = {
+							dataSource: source,
+							argumentField: 'month',
+							valueField: 'nickel2010',
+							type: 'bar',
+							showMinMax: true,
+							showFirstLast: false,
+							barPositiveColor: '#fcd036',
+							minColor: '#d5080f',
+							maxColor: '#68b828'
+						},
+						copOptions = {
+							dataSource: source,
+							argumentField: 'month',
+							valueField: 'copper2010',
+							type: 'bar',
+							barPositiveColor: '#0e62c7',
+							firstLastColor: '#7c38bc'
+						};
+						
+						changeFilter = function(e) {
+							var count = e.options[e.selectedIndex].value;
+							source.filter(['month', '<=', count]);
+							source.load();
+						};
+						
+						$('.alum2010-2').dxSparkline(alumOptions);
+						$('.nick2010-2').dxSparkline(nickOptions);
+						$('.cop2010-2').dxSparkline(copOptions);
+						
+						$('.alum2011-2').dxSparkline($.extend(alumOptions, { valueField: 'alum2011-2' }));
+						$('.nick2011-2').dxSparkline($.extend(nickOptions, { valueField: 'nickel2011-2' }));
+						$('.cop2011-2').dxSparkline($.extend(copOptions, { valueField: 'copper2011-2' }));
+						
+						$('.alum2012-2').dxSparkline($.extend(alumOptions, { valueField: 'alum2012-2' }));
+						$('.nick2012-2').dxSparkline($.extend(nickOptions, { valueField: 'nickel2012' }));
+						$('.cop2012-2').dxSparkline($.extend(copOptions, { valueField: 'copper2012' }));
+
+					});
+					
+				</script>
+				
+				<table class="table table-bordered table-hover text-center middle-align" border="1">
+				    <tr>
+				        <th></th>
+				        <th width="25%">Aluminium (USD/ton)</th>
+				        <th width="25%">Nickel (USD/ton)</th>
+				        <th width="25%">Copper (USD/ton)</th>
+				    </tr>
+				    <tr>
+				        <th>2010</th>
+				        <td>
+				            <div class="sparkline alum2010-2"></div>
+				        </td>
+				        <td>
+				            <div class="sparkline nick2010-2"></div>
+				        </td>
+				        <td>
+				            <div class="sparkline cop2010-2"></div>
+				        </td>
+				    </tr>
+				    <tr>
+				        <th>2011</th>
+				        <td>
+				            <div class="sparkline alum2011-2"></div>
+				        </td>
+				        <td>
+				            <div class="sparkline nick2011-2"></div>
+				        </td>
+				        <td>
+				            <div class="sparkline cop2011-2"></div>
+				        </td>
+				    </tr>
+				    <tr>
+				        <th>2012</th>
+				        <td>
+				            <div class="sparkline alum2012-2"></div>
+				        </td>
+				        <td>
+				            <div class="sparkline nick2012-2"></div>
+				        </td>
+				        <td>
+				            <div class="sparkline cop2012-2"></div>
+				        </td>
+				    </tr>
+				</table>
+				<div style="margin-top: 15px">Choose a number of months:
+				    <select onchange="changeFilter(this)">
+				        <option selected>12</option>
+				        <option>11</option>
+				        <option>10</option>
+				        <option>9</option>
+				        <option>8</option>
+				        <option>7</option>
+				        <option>6</option>
+				        <option>5</option>
+				        <option>4</option>
+				        <option>3</option>
+				        <option>2</option>
+				        <option>1</option>
+				    </select>
+				</div>
+				
+			</div>
+			
+			<hr />
+			
+			<div class="panel-body">	
+				<script type="text/javascript">
+					jQuery(document).ready(function($)
+					{
+						var options = {
+							startScaleValue: 0,
+							endScaleValue: 35,
+							tooltip: {
+								customizeText: function() {
+									return 'Current t&#176: ' + this.value + '&#176C<br>' + 'Average t&#176: ' + this.target + '&#176C';
+								}
+							}
+						};
+						
+						var junFirst = $.extend({ value: 23, target: 20, color: '#68b828' }, options),
+							julFirst = $.extend({ value: 27, target: 24, color: '#4fcdfc' }, options),
+							augFirst = $.extend({ value: 20, target: 26, color: '#d5080f' }, options);
+						
+						var junSecond = $.extend({ value: 24, target: 22, color: '#68b828' }, options),
+							julSecond = $.extend({ value: 28, target: 24, color: '#4fcdfc' }, options),
+							augSecond = $.extend({ value: 30, target: 24, color: '#d5080f' }, options);
+						
+						var junThird = $.extend({ value: 35, target: 24, color: '#68b828' }, options),
+							julThird = $.extend({ value: 24, target: 26, color: '#4fcdfc' }, options),
+							augThird = $.extend({ value: 28, target: 22, color: '#d5080f' }, options);
+						
+						var junFourth = $.extend({ value: 29, target: 25, color: '#68b828' }, options),
+							julFourth = $.extend({ value: 24, target: 27, color: '#4fcdfc' }, options),
+							augFourth = $.extend({ value: 21, target: 21, color: '#d5080f' }, options);
+						
+						$('.june-1').dxBullet(junFirst);
+						$('.july-1').dxBullet(julFirst);
+						$('.august-1').dxBullet(augFirst);
+						
+						$('.june-2').dxBullet(junSecond);
+						$('.july-2').dxBullet(julSecond);
+						$('.august-2').dxBullet(augSecond);
+						
+						$('.june-3').dxBullet(junThird);
+						$('.july-3').dxBullet(julThird);
+						$('.august-3').dxBullet(augThird);
+						
+						$('.june-4').dxBullet(junFourth);
+						$('.july-4').dxBullet(julFourth);
+						$('.august-4').dxBullet(augFourth);
+
+					});
+				</script>
+				
+				<table class="table table-bordered table-hover text-center middle-align" border="1">
+				    <tr>
+				        <th></th>
+				        <th width="25%">June</th>
+				        <th width="25%">July</th>
+				        <th width="25%">August</th>
+				    </tr>
+				    <tr>
+				        <th>First week</th>
+				        <td>
+				            <div class="sparkline june-1"></div>
+				        </td>
+				        <td>
+				            <div class="sparkline july-1"></div>
+				        </td>
+				        <td>
+				            <div class="sparkline august-1"></div>
+				        </td>
+				    </tr>
+				    <tr>
+				        <th>Second week</th>
+				        <td>
+				            <div class="sparkline june-2"></div>
+				        </td>
+				        <td>
+				            <div class="sparkline july-2"></div>
+				        </td>
+				        <td>
+				            <div class="sparkline august-2"></div>
+				        </td>
+				    </tr>
+				    <tr>
+				        <th>Third Week</th>
+				        <td>
+				            <div class="sparkline june-3"></div>
+				        </td>
+				        <td>
+				            <div class="sparkline july-3"></div>
+				        </td>
+				        <td>
+				            <div class="sparkline august-3"></div>
+				        </td>
+				    </tr>
+				    <tr>
+				        <th>Fourth week</th>
+				        <td>
+				            <div class="sparkline june-4"></div>
+				        </td>
+				        <td>
+				            <div class="sparkline july-4"></div>
+				        </td>
+				        <td>
+				            <div class="sparkline august-4"></div>
+				        </td>
+				    </tr>
+				</table>
+			</div>
+			
+		</div>
+			
+	</div>
+</div>

@@ -1,0 +1,98 @@
+
+
+	<page-title ng-if="layoutOptions.pageTitles" title="Image Crop" description="JavaScript image crop helper plugin with PHP Crop example"></page-title>
+
+
+
+<div class="panel panel-default">
+	<div class="panel-heading">
+		Image Cropping Options
+	</div>
+	<div class="panel-body">
+		
+		<script type="text/javascript">
+		jQuery(document).ready(function($)
+		{
+			var preview_size = [220, 145],
+				aspect_ratio = preview_size[0] / preview_size[1],
+					
+				$image = $(".img-container img"),
+				$x = $("#img-1-x"),
+				$y = $("#img-1-y"),
+				$w = $("#img-1-w"),
+				$h = $("#img-1-h");
+			
+			// Plugin Initialization
+			$image.cropper({
+				aspectRatio: aspect_ratio,
+				preview: '#img-preview',
+				done: function(data)
+				{
+					$x.text( data.x );
+					$y.text( data.y );
+					$w.text( data.width );
+					$h.text( data.height );
+				}
+			});
+			
+			// Preview Image Setup (based on defined crop width and height
+			$("#img-preview").css({
+				width: preview_size[0],
+				height: preview_size[1]
+			});
+				
+			$("#crop-img").on('click', function(ev)
+			{
+				ev.preventDefault();
+				window.open($(this).attr('href') + "?x=" + $x.text() + "&y=" + $y.text() + "&w=" + $w.text() + "&h=" + $h.text() + "&tw=" + preview_size[0] + "&th=" + preview_size[1] );
+			});
+		});
+		</script>
+		
+		<div class="row">
+			<div class="col-md-8">
+				
+				<strong class="text-primary">Original Image</strong>
+				<br />
+				<br />
+				
+				<div class="img-container">
+					<img src="data/vw1.jpg" class="img-responsive" />
+				</div>
+				
+			</div>
+			<div class="col-md-4">
+				
+				<strong class="text-primary">Preview Image</strong>
+				<br />
+				<br />
+				<div class="img-shade">
+					<div id="img-preview" class="img-preview"></div>
+				</div>
+				
+				<table class="table table-bordered table-hover">
+					<thead>
+						<tr>
+							<th width="25%">X</th>
+							<th width="25%">Y</th>
+							<th width="25%">W</th>
+							<th width="25%">H</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td id="img-1-x">0px</td>
+							<td id="img-1-y">0px</td>
+							<td id="img-1-w">0px</td>
+							<td id="img-1-h">0px</td>
+						</tr>
+					</tbody>
+				</table>
+				
+				<a id="crop-img" href="data/crop-image.php" class="btn btn-secondary">Crop Image</a>
+				
+			</div>
+		</div>
+		
+	</div>
+</div>

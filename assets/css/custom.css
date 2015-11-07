@@ -1,0 +1,122 @@
+/**
+ *
+ * Apply your custom CSS here
+ *
+*/
+
+body {	
+}
+
+a {
+}
+
+.alignleft {
+    float:left;
+}
+
+.profile-image {
+    float:left;
+}
+
+.profile-name {
+    float:left;
+    margin-top:25px;
+}
+
+.btn-profile {
+    width:120px;
+}
+
+.page-container .main-content {
+    background: rgba(0, 0, 0, 0) url("http://controlspan.invisionsolutions.ca/assets/images/bg.png") no-repeat scroll 0 0;
+}
+
+.sidebar-menu-inner {
+    background: rgba(0, 0, 0, 0) url("http://controlspan.invisionsolutions.ca/assets/images/bg-left.png") no-repeat scroll 0 0;
+}
+
+.sidebar-menu .logo-env {
+    background-color: #18AEED;
+   
+}
+
+.sidebar-menu .logo-env .settings-icon {
+    top: 15px!important;
+}
+
+.page-container .sidebar-menu .sidebar-menu-inner .logo-env .mobile-menu-toggle {
+    padding-top:15px;
+}
+
+.user_profile_custom {
+    overflow: hidden;
+    text-align:left;
+    clear:both;
+    background-color:#1b1e1f;
+    padding:15px
+}
+
+.user-img-custom {
+    float:left;
+}
+
+.user-img-custom img {
+    border:5px solid #555657;
+}
+
+.user-name-custom {
+    float:left;
+    margin-top:5px;
+    padding-left:20px;
+}
+.user-name-custom a {
+    font-size:18px;
+    color:#fff;
+}
+
+.user-name-custom span {
+    color:#919292;
+}
+
+.user_profile_menu {
+    background-color:#1b1e1f;
+    clear:both;
+}
+
+.user_profile_menu ul {
+    display:inline-block;
+    list-style:none;
+    margin:0px!important;
+    padding:0px!important;
+    width:100%;
+    border-top:1px solid #595959;
+    border-bottom:1px solid #595959;
+}
+
+.user_profile_menu ul li a {
+    color:#919292;
+}
+
+.user_profile_menu ul li:first-child {
+    float:left;
+    padding:8px 8px 8px 8px;
+}
+
+.user_profile_menu ul li:last-child {
+    float:right;
+    padding:8px 15px 8px 8px;
+    border-left:1px solid #595959;
+}
+
+.sidebar-menu .logo-env .settings-icon a i {
+    color: #fff;
+}
+
+.sidebar-menu .main-menu li.active > a {
+    color: #0e9cd7;
+}
+
+.customer-name {
+    display: block;
+    font-size: 23px;
+}

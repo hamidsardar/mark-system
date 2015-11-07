@@ -1,0 +1,179 @@
+
+
+	<page-title ng-if="layoutOptions.pageTitles" title="Sliders" description="Vertical and horizontal jQuery UI sliders"></page-title>
+
+
+
+
+<div class="row">
+	<div class="col-sm-6">
+		
+		<div class="panel panel-default">
+		
+			<div class="panel-heading">
+				<div class="panel-title">
+					Horizontal Sliders
+				</div>
+			</div>
+			
+			<div class="panel-body">
+		
+				<div class="slider" data-min="0" data-max="1800" data-value="223"></div>
+				
+				<div class="slider slider-success" data-prefix="&pound; " data-min="0" data-max="1800" data-value="465"></div>
+				
+				<div class="slider slider-info" data-prefix="&euro; " data-postfix=",-" data-min="0" data-max="1800" data-value="897"></div>
+		
+			</div>
+		
+		</div>
+		
+	</div>
+	<div class="col-sm-6">
+		
+		<div class="panel panel-default">
+		
+			<div class="panel-heading">
+				<div class="panel-title">
+					Basic &amp; Range Slider
+				</div>
+			</div>
+			
+			<div class="panel-body">
+				
+				
+				<h5>Basic Slider</h5>
+				<div class="slider slider-warning" data-basic="1" data-min="0" data-max="1800" data-value="120" data-step="10"></div>
+				
+				<h5>Range Slider</h5>
+				<div class="slider slider-purple" data-postfix=" $" data-min="0" data-max="2000" data-min-val="400" data-max-val="1400"></div>
+				
+				
+			</div>
+		
+		</div>
+		
+	</div>
+</div>
+
+
+
+<div class="row">
+	<div class="col-sm-6">
+		
+		<div class="panel panel-default">
+		
+			<div class="panel-heading">
+				<div class="panel-title">
+					Vertical Sliders
+				</div>
+			</div>
+			
+			<div class="panel-body">
+				
+
+				<div class="row">
+					<div class="col-md-3">
+						<div class="slider slider-red" data-vertical="1" data-prefix="&pound; " data-min="0" data-max="1800" data-value="465"></div>
+					</div>
+					
+					<div class="col-md-3">
+						<div class="slider slider-blue" data-vertical="1" data-prefix="&pound; " data-min="0" data-max="1800" data-value="900"></div>
+					</div>
+					
+					<div class="col-md-3">
+						<div class="slider slider-primary" data-vertical="1" data-postfix=" $" data-min="0" data-max="2000" data-min-val="400" data-max-val="1400"></div>
+					</div>
+					
+					<div class="col-md-3">
+						<div class="slider slider-warning" data-vertical="1" data-basic="1" data-min="0" data-max="1800" data-value="1600"></div>
+					</div>
+				</div>
+				
+			</div>
+		
+		</div>
+	
+	</div>
+	
+	<div class="col-sm-6">
+		
+		<div class="panel panel-default">
+		
+			<div class="panel-heading">
+				<div class="panel-title">
+					Filling External Field
+				</div>
+			</div>
+			
+			<div class="panel-body">
+				
+				<div class="slider slider-gray" data-min="0" data-max="1800" data-value="223" data-fill="#sample-field"></div>
+						
+				<input type="text" class="form-control" id="sample-field" value="" placeholder="Field will be filled with the above slider value" />
+				
+				<br />
+				<br />
+				
+				<div class="slider slider-danger" data-postfix=" $" data-min="0" data-max="2000" data-min-val="400" data-max-val="1400" data-fill="#sample-field-2"></div>
+				
+				<input type="text" class="form-control" id="sample-field-2" value="" placeholder="Slide the range to fill this field" />
+				
+				
+			</div>
+		
+		</div>
+	</div>
+</div>
+
+
+
+
+<div class="row">
+	<div class="col-sm-12">
+		
+		<div class="panel panel-default">
+		
+			<div class="panel-heading">
+				<div class="panel-title">
+					Knobs
+				</div>
+			</div>
+			
+			<div class="panel-body">
+				
+				<br />
+				<br />
+				<br />
+				
+				<div class="row">
+					<div class="col-sm-4 text-center">
+						
+						<div class="inline">
+							<input class="knob" data-min="0" data-max="40" data-width="145" data-height="145" data-thickness=".1" data-fgColor="#8dc63f" data-bgColor="#ebebeb" value="4">
+						</div>
+				
+					</div>
+					<div class="col-sm-4 text-center">
+						
+						<div class="inline">
+							<input class="knob" data-min="0" data-max="300" data-width="230" data-height="230" data-thickness=".3" data-fgColor="#7c38bc" data-bgColor="#ebebeb" data-angleArc="210" data-angleOffset="-105" value="150">
+						</div>
+				
+					</div>
+					<div class="col-sm-4 text-center">
+						
+						<div class="inline">
+							<input class="knob" data-min="0" data-max="100" data-width="145" data-height="145" data-thickness=".25" data-fgColor="#40bbea" data-bgColor="#fafafa" value="33">
+						</div>
+				
+					</div>
+				</div>
+				
+				
+			</div>
+		
+		</div>
+	
+	</div>
+</div>

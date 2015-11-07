@@ -1,0 +1,52 @@
+<page-title ng-if="layoutOptions.pageTitles" title="Products" description="Product Management"></page-title>
+
+<div class="row">
+
+	<div class="col-md-12">
+
+		<tabset>
+			<tab heading="All Products">
+				<table class="table table-hover members-table middle-align">
+					<thead>
+						<tr class="replace-inputs">
+							<th>Customer</th>
+              <th>Product Name</th>
+              <th>Pack Qty</th>
+							<th>Settings</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="product in data" ng-hide="product.deleted">
+							<td class="user-name">
+								<a href="" class="name" ng-click="editProduct(product.productID)">
+								{{ product.customer }}
+								</a>
+							</td>
+							<td class="user-name">{{ product.name }}</td>
+              <td class="user-name">{{ product.quantity }}</td>
+							<td class="action-links">
+								<a href="" class="edit" ng-click="editProduct(product.productID)">
+									<i class="linecons-pencil"></i>
+									Edit Product
+								</a>
+		
+								<a href="" class="delete" ng-click="deleteProduct(product)">
+									<i class="linecons-trash"></i>
+									Delete
+								</a>
+								
+							</td>
+						</tr>
+						
+					</tbody>
+					
+				</table>
+				<div class="selected-actions" >
+					<a href="#/app/product-manager-add-product" class="edit" style="color: green">Add a Product</a>								
+				</div>
+			</tab>
+		</tabset>
+							
+	</div>
+	
+</div>

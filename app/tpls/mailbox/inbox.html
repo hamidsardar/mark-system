@@ -1,0 +1,565 @@
+
+
+	<page-title ng-if="layoutOptions.pageTitles" title="Mailbox" description="Mailbox sidebar and inbox messages"></page-title>
+
+
+
+<section class="mailbox-env">
+
+	<div class="row">
+
+		<!-- Inbox emails -->
+		<div class="col-sm-9 mailbox-right">
+
+			<div class="mail-env">
+
+				<script type="text/javascript">
+					jQuery(document).ready(function($)
+					{
+						var $state = $(".mail-table thead input[type='checkbox'], .mail-table tfoot input[type='checkbox']"),
+							$chcks = $(".mail-table tbody input[type='checkbox']");
+
+						// Script to select all checkboxes
+						$state.on('change', function(ev)
+						{
+							if($state.is(':checked'))
+							{
+								$chcks.prop('checked', true).trigger('change');
+							}
+							else
+							{
+								$chcks.prop('checked', false).trigger('change');
+							}
+						});
+
+						// Row Highlighting
+						$chcks.each(function(i, el)
+						{
+							var $tr = $(el).closest('tr');
+
+							$(this).on('change', function(ev)
+							{
+								$tr[$(this).is(':checked') ? 'addClass' : 'removeClass']('highlighted');
+							});
+						});
+
+						// Stars
+						$(".mail-table .star").on('click', function(ev)
+						{
+							ev.preventDefault();
+
+							if( ! $(this).hasClass('starred'))
+							{
+								$(this).addClass('starred').find('i').attr('class', 'fa-star');
+							}
+							else
+							{
+								$(this).removeClass('starred').find('i').attr('class', 'fa-star-o');
+							}
+						});
+					});
+				</script>
+
+				<!-- mail table -->
+				<table class="table mail-table">
+
+					<!-- mail table header -->
+					<thead>
+						<tr>
+							<th class="col-cb">
+								<input type="checkbox" class="cbr" />
+							</th>
+							<th colspan="4" class="col-header-options">
+
+								<div class="mail-select-options">Select all</div>
+
+								<div class="mail-pagination">
+									Showing <strong>1 to 30</strong> of <strong>789</strong> emails
+
+									<div class="next-prev">
+										<a href=""><i class="fa-angle-left"></i></a>
+										<a href=""><i class="fa-angle-right"></i></a>
+									</div>
+								</div>
+							</th>
+						</tr>
+					</thead>
+
+					<!-- mail table footer -->
+					<tfoot>
+						<tr>
+							<th class="col-cb">
+								<input type="checkbox" class="cbr" />
+							</th>
+							<th colspan="4" class="col-header-options">
+
+								<div class="mail-select-options">Select all</div>
+
+								<div class="mail-pagination">
+									Showing <strong>1 to 30</strong> of <strong>789</strong> emails
+
+									<div class="next-prev">
+										<a href=""><i class="fa-angle-left"></i></a>
+										<a href=""><i class="fa-angle-right"></i></a>
+									</div>
+								</div>
+							</th>
+						</tr>
+					</tfoot>
+
+					<!-- email list -->
+					<tbody>
+
+						<tr class="unread">
+							<td class="col-cb">
+								<div class="checkbox checkbox-replace">
+									<input type="checkbox" class="cbr" />
+								</div>
+							</td>
+							<td class="col-name">
+								<a href="" class="star">
+									<i class="fa-star-o"></i>
+								</a>
+								<a href="#/app/mailbox-message" class="col-name">Google AdWords</a>
+							</td>
+							<td class="col-subject">
+								<a href="#/app/mailbox-message">
+									Google AdWords: Ads not serving
+								</a>
+							</td>
+							<td class="col-options hidden-sm hidden-xs"></td>
+							<td class="col-time">08:40</td>
+						</tr>
+
+						<tr class="unread"><!-- new email class: unread -->
+							<td class="col-cb">
+								<div class="checkbox checkbox-replace">
+									<input type="checkbox" class="cbr" />
+								</div>
+							</td>
+							<td class="col-name">
+								<a href="" class="star starred">
+									<i class="fa-star"></i>
+								</a>
+								<a href="#/app/mailbox-message" class="col-name">Facebook</a>
+							</td>
+							<td class="col-subject">
+								<a href="#/app/mailbox-message">
+									Reset your account password
+								</a>
+							</td>
+							<td class="col-options hidden-sm hidden-xs">
+								<a href="#/app/mailbox-message"><i class="linecons-attach"></i></a>
+							</td>
+							<td class="col-time">11:17</td>
+						</tr>
+
+						<tr>
+							<td class="col-cb">
+								<div class="checkbox checkbox-replace">
+									<input type="checkbox" class="cbr" />
+								</div>
+							</td>
+							<td class="col-name">
+								<a href="" class="star">
+									<i class="fa-star-o"></i>
+								</a>
+								<a href="#/app/mailbox-message" class="col-name">Apple.com</a>
+							</td>
+							<td class="col-subject">
+								<a href="#/app/mailbox-message">
+									<span class="label label-danger">Business</span>
+									Your apple account ID has been accessed from un-familiar location.
+								</a>
+							</td>
+							<td class="col-options hidden-sm hidden-xs"></td>
+							<td class="col-time">Today</td>
+						</tr>
+
+						<tr>
+							<td class="col-cb">
+								<div class="checkbox checkbox-replace">
+									<input type="checkbox" class="cbr" />
+								</div>
+							</td>
+							<td class="col-name">
+								<a href="" class="star">
+									<i class="fa-star-o"></i>
+								</a>
+								<a href="#/app/mailbox-message" class="col-name">World Weather Online</a>
+							</td>
+							<td class="col-subject">
+								<a href="#/app/mailbox-message">
+									Over Throttle Alert
+								</a>
+							</td>
+							<td class="col-options hidden-sm hidden-xs">
+								<a href="#/app/mailbox-message"><i class="linecons-attach"></i></a>
+							</td>
+							<td class="col-time">Yesterday</td>
+						</tr>
+
+						<tr>
+							<td class="col-cb">
+								<div class="checkbox checkbox-replace">
+									<input type="checkbox" class="cbr" />
+								</div>
+							</td>
+							<td class="col-name">
+								<a href="" class="star">
+									<i class="fa-star-o"></i>
+								</a>
+								<a href="#/app/mailbox-message" class="col-name">Dropbox</a>
+							</td>
+							<td class="col-subject">
+								<a href="#/app/mailbox-message">
+									Complete your Dropbox setup!
+								</a>
+							</td>
+							<td class="col-options hidden-sm hidden-xs"></td>
+							<td class="col-time">4 Dec</td>
+						</tr>
+
+						<tr>
+							<td class="col-cb">
+								<div class="checkbox checkbox-replace">
+									<input type="checkbox" class="cbr" />
+								</div>
+							</td>
+							<td class="col-name">
+								<a href="" class="star starred">
+									<i class="fa-star"></i>
+								</a>
+								<a href="#/app/mailbox-message" class="col-name">Arlind Nushi</a>
+							</td>
+							<td class="col-subject">
+								<a href="#/app/mailbox-message">
+									<span class="label label-warning">Friends</span>
+									Work progress for Neon Project
+								</a>
+							</td>
+							<td class="col-options hidden-sm hidden-xs"></td>
+							<td class="col-time">28 Nov</td>
+						</tr>
+
+						<tr><!-- new email class: unread -->
+							<td class="col-cb">
+								<div class="checkbox checkbox-replace">
+									<input type="checkbox" class="cbr" />
+								</div>
+							</td>
+							<td class="col-name">
+								<a href="" class="star starred">
+									<i class="fa-star"></i>
+								</a>
+								<a href="#/app/mailbox-message" class="col-name">Jose D. Gardner</a>
+							</td>
+							<td class="col-subject">
+								<a href="#/app/mailbox-message">
+									Regarding to your website issues.
+								</a>
+							</td>
+							<td class="col-options hidden-sm hidden-xs">
+								<a href="#/app/mailbox-message"><i class="linecons-attach"></i></a>
+							</td>
+							<td class="col-time">22 Nov</td>
+						</tr>
+
+						<tr>
+							<td class="col-cb">
+								<div class="checkbox checkbox-replace">
+									<input type="checkbox" class="cbr" />
+								</div>
+							</td>
+							<td class="col-name">
+								<a href="" class="star">
+									<i class="fa-star-o"></i>
+								</a>
+								<a href="#/app/mailbox-message" class="col-name">Aurelio D. Cummins</a>
+							</td>
+							<td class="col-subject">
+								<a href="#/app/mailbox-message">
+									Steadicam operator
+								</a>
+							</td>
+							<td class="col-options hidden-sm hidden-xs"></td>
+							<td class="col-time">15 Nov</td>
+						</tr>
+
+						<tr>
+							<td class="col-cb">
+								<div class="checkbox checkbox-replace">
+									<input type="checkbox" class="cbr" />
+								</div>
+							</td>
+							<td class="col-name">
+								<a href="" class="star">
+									<i class="fa-star-o"></i>
+								</a>
+								<a href="#/app/mailbox-message" class="col-name">Filan Fisteku</a>
+							</td>
+							<td class="col-subject">
+								<a href="#/app/mailbox-message">
+									You are loosing clients because your website is not responsive.
+								</a>
+							</td>
+							<td class="col-options hidden-sm hidden-xs"></td>
+							<td class="col-time">02 Nov</td>
+						</tr>
+
+						<tr>
+							<td class="col-cb">
+								<div class="checkbox checkbox-replace">
+									<input type="checkbox" class="cbr" />
+								</div>
+							</td>
+							<td class="col-name">
+								<a href="" class="star">
+									<i class="fa-star-o"></i>
+								</a>
+								<a href="#/app/mailbox-message" class="col-name">Instagram</a>
+							</td>
+							<td class="col-subject">
+								<a href="#/app/mailbox-message">
+									Instagram announces the new video uploadin feature.
+								</a>
+							</td>
+							<td class="col-options hidden-sm hidden-xs">
+								<a href="#/app/mailbox-message"><i class="linecons-attach"></i></a>
+							</td>
+							<td class="col-time">26 Oct</td>
+						</tr>
+
+						<tr>
+							<td class="col-cb">
+								<div class="checkbox checkbox-replace">
+									<input type="checkbox" class="cbr" />
+								</div>
+							</td>
+							<td class="col-name">
+								<a href="" class="star">
+									<i class="fa-star-o"></i>
+								</a>
+								<a href="#/app/mailbox-message" class="col-name">James Blue</a>
+							</td>
+							<td class="col-subject">
+								<a href="#/app/mailbox-message">
+									<span class="label label-success">Envato</span>
+									There are 20 notifications
+								</a>
+							</td>
+							<td class="col-options hidden-sm hidden-xs"></td>
+							<td class="col-time">18 Oct</td>
+						</tr>
+
+						<tr>
+							<td class="col-cb">
+								<div class="checkbox checkbox-replace">
+									<input type="checkbox" class="cbr" />
+								</div>
+							</td>
+							<td class="col-name">
+								<a href="" class="star">
+									<i class="fa-star-o"></i>
+								</a>
+								<a href="#/app/mailbox-message" class="col-name">SomeHost</a>
+							</td>
+							<td class="col-subject">
+								<a href="#/app/mailbox-message">
+									Bugs in your system.
+								</a>
+							</td>
+							<td class="col-options hidden-sm hidden-xs"></td>
+							<td class="col-time">01 Sep</td>
+						</tr>
+
+						<tr><!-- new email class: unread -->
+							<td class="col-cb">
+								<div class="checkbox checkbox-replace">
+									<input type="checkbox" class="cbr" />
+								</div>
+							</td>
+							<td class="col-name">
+								<a href="" class="star starred">
+									<i class="fa-star"></i>
+								</a>
+								<a href="#/app/mailbox-message" class="col-name">Facebook</a>
+							</td>
+							<td class="col-subject">
+								<a href="#/app/mailbox-message">
+									Reset your account password
+								</a>
+							</td>
+							<td class="col-options hidden-sm hidden-xs">
+								<a href="#/app/mailbox-message"><i class="linecons-attach"></i></a>
+							</td>
+							<td class="col-time">13:52</td>
+						</tr>
+
+						<tr>
+							<td class="col-cb">
+								<div class="checkbox checkbox-replace">
+									<input type="checkbox" class="cbr" />
+								</div>
+							</td>
+							<td class="col-name">
+								<a href="" class="star">
+									<i class="fa-star-o"></i>
+								</a>
+								<a href="#/app/mailbox-message" class="col-name">Google AdWords</a>
+							</td>
+							<td class="col-subject">
+								<a href="#/app/mailbox-message">
+									Google AdWords: Ads not serving
+								</a>
+							</td>
+							<td class="col-options hidden-sm hidden-xs"></td>
+							<td class="col-time">09:27</td>
+						</tr>
+
+						<tr>
+							<td class="col-cb">
+								<div class="checkbox checkbox-replace">
+									<input type="checkbox" class="cbr" />
+								</div>
+							</td>
+							<td class="col-name">
+								<a href="" class="star">
+									<i class="fa-star-o"></i>
+								</a>
+								<a href="#/app/mailbox-message" class="col-name">Apple.com</a>
+							</td>
+							<td class="col-subject">
+								<a href="#/app/mailbox-message">
+									<span class="label label-danger">Business</span>
+									Your apple account ID has been accessed from un-familiar location.
+								</a>
+							</td>
+							<td class="col-options hidden-sm hidden-xs"></td>
+							<td class="col-time">Today</td>
+						</tr>
+
+						<tr>
+							<td class="col-cb">
+								<div class="checkbox checkbox-replace">
+									<input type="checkbox" class="cbr" />
+								</div>
+							</td>
+							<td class="col-name">
+								<a href="" class="star">
+									<i class="fa-star-o"></i>
+								</a>
+								<a href="#/app/mailbox-message" class="col-name">World Weather Online</a>
+							</td>
+							<td class="col-subject">
+								<a href="#/app/mailbox-message">
+									Over Throttle Alert
+								</a>
+							</td>
+							<td class="col-options hidden-sm hidden-xs">
+								<a href="#/app/mailbox-message"><i class="linecons-attach"></i></a>
+							</td>
+							<td class="col-time">Yesterday</td>
+						</tr>
+
+						<tr>
+							<td class="col-cb">
+								<div class="checkbox checkbox-replace">
+									<input type="checkbox" class="cbr" />
+								</div>
+							</td>
+							<td class="col-name">
+								<a href="" class="star">
+									<i class="fa-star-o"></i>
+								</a>
+								<a href="#/app/mailbox-message" class="col-name">Dropbox</a>
+							</td>
+							<td class="col-subject">
+								<a href="#/app/mailbox-message">
+									Complete your Dropbox setup!
+								</a>
+							</td>
+							<td class="col-options hidden-sm hidden-xs"></td>
+							<td class="col-time">4 Dec</td>
+						</tr>
+
+					</tbody>
+
+				</table>
+
+			</div>
+
+		</div>
+
+		<!-- Mailbox Sidebar -->
+		<div class="col-sm-3 mailbox-left">
+
+			<div class="mailbox-sidebar">
+
+				<a href="#/app/mailbox-compose" class="btn btn-block btn-secondary btn-icon btn-icon-standalone btn-icon-standalone-right">
+					<i class="linecons-mail"></i>
+					<span>Compose</span>
+				</a>
+
+
+				<ul class="list-unstyled mailbox-list">
+					<li class="active">
+						<a href="">
+							Inbox
+							<span class="badge badge-success pull-right">5</span>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							Sent
+						</a>
+					</li>
+					<li>
+						<a href="">
+							Drafts
+						</a>
+					</li>
+					<li>
+						<a href="">
+							Spam
+							<span class="badge badge-purple pull-right">2</span>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							Trash
+						</a>
+					</li>
+				</ul>
+
+				<div class="vspacer"></div>
+
+				<ul class="list-unstyled mailbox-list">
+					<li class="list-header">Filter by tags</li>
+					<li>
+						<a href="">
+							ThemeForest
+							<span class="badge badge-success badge-roundless pull-right upper">Envato</span>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							Society
+							<span class="badge badge-red badge-roundless pull-right upper">Friends</span>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							Work
+							<span class="badge badge-warning badge-roundless pull-right upper">Google</span>
+						</a>
+					</li>
+				</ul>
+
+			</div>
+
+		</div>
+
+	</div>
+
+</section>

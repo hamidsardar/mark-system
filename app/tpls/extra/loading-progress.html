@@ -1,0 +1,297 @@
+
+
+	<page-title ng-if="layoutOptions.pageTitles" title="Loader" description="Page loading progress bar, simulated by JavaScript functions"></page-title>
+
+
+<div class="panel panel-default">
+	<div class="panel-heading">
+		<h3 class="panel-title">Example Usage</h3>
+		<div class="panel-options">
+			<a href="" data-toggle="panel">
+				<span class="collapse-icon">&ndash;</span>
+				<span class="expand-icon">+</span>
+			</a>
+			<a href="" data-toggle="remove">
+				&times;
+			</a>
+		</div>
+	</div>
+	<div class="panel-body">
+		
+		<table class="table">
+			<thead>
+				<tr>
+					<th width="25%">Example, Live Preview</th>
+					<th>Usage Directions</th>
+				</tr>
+			</thead>
+			
+			<tbody>
+				<tr>
+					<td align="center" class="middle-align">
+						<a href="" ng-click="showLoadingBar(100);" class="btn btn-info btn-block">Load to 100%</a>
+					</td>
+					<td>
+						Will show progress bar in the header that will load to 100% and will automatically be hidden.
+						Delay for this animation is 1.3 seconds.
+						
+						<br />
+						<br />
+						Sample code: <br />
+						<pre>showLoadingBar(100);</pre>
+					</td>
+				</tr>
+				
+				<tr>
+					<td align="center" class="middle-align">
+						<a href="" ng-click="showLoadingBar(65);" class="btn btn-info btn-block">Load to 65%</a>
+					</td>
+					<td>
+						Will fill the progress bar to 65% and will stop.
+						
+						<br />
+						<br />
+						Sample code: <br />
+						<pre>showLoadingBar(65);</pre>
+					</td>
+				</tr>
+				
+				<tr>
+					<td align="center" class="middle-align">
+						<a href="" ng-click="showLoadingBar(20);" class="btn btn-info btn-block">Load to 20%</a>
+					</td>
+					<td>
+						Regression sample, will work if you have already loaded progress to 65% in this case.
+						
+						<br />
+						<br />
+						Sample code: <br />
+						<pre>showLoadingBar(20);</pre>
+					</td>
+				</tr>
+				
+				<tr>
+					<td align="center" class="middle-align">
+						<a href="" id="progress-cb-test" class="btn btn-info btn-block">Callback Test (Finish)</a>
+						
+						<script type="text/javascript">
+							jQuery(document).ready(function($)
+							{
+								$("#progress-cb-test").click(function(ev)
+								{
+									ev.preventDefault();
+									
+									showLoadingBar({
+										pct: 78,
+										finish: function(pct)
+										{
+											alert("Progress stopped to: " + pct + '%');
+											hideLoadingBar();
+										}
+									});
+								});
+							});
+						</script>
+					</td>
+					<td>
+						An example how you can trigger specific function after the progress bar reaches the end of given percentage.
+						
+						<br />
+						<br />
+						Sample code: <br />
+						<pre>showLoadingBar({
+	pct: 78,
+	finish: function(pct)
+	{
+		alert("Progress stopped to: " + pct + '%');
+		hideLoadingBar();
+	}
+});</pre>
+					</td>
+				</tr>
+				
+				<tr>
+					<td align="center" class="middle-align">
+						<a href="" id="progress-cb-test-before" class="btn btn-info btn-block">Callback Test (Before)</a>
+						
+						<script type="text/javascript">
+							jQuery(document).ready(function($)
+							{
+								$("#progress-cb-test-before").click(function(ev)
+								{
+									ev.preventDefault();
+									
+									showLoadingBar({
+										pct: 78,
+										delay: 5,
+										before: function(pct)
+										{
+											alert("Progress bar initialized");
+										}
+									});
+								});
+							});
+						</script>
+					</td>
+					<td>
+						An example how you can trigger specific function before the progress bar starts loading. You can also apply both callbacks on finish and before.
+						
+						<br />
+						<br />
+						Sample code: <br />
+						<pre>showLoadingBar({
+	pct: 78,
+	delay: 5,
+	before: function(pct)
+	{
+		alert("Progress bar initialized");
+	}
+});</pre>
+					</td>
+					
+				</tr>
+				
+				<tr>
+					<td align="center" class="middle-align">
+						<a href="" id="progress-advanced" class="btn btn-info btn-block">More Advanced Example</a>
+						
+						<script type="text/javascript">
+							jQuery(document).ready(function($)
+							{
+								$("#progress-advanced").click(function(ev)
+								{
+									ev.preventDefault();
+									
+									showLoadingBar({
+										pct: 78,
+										delay: 1.2,
+										finish: function(pct)
+										{
+											showLoadingBar({
+												pct: 30,
+												delay: 1.7,
+												wait: .5,
+												finish: function()
+												{
+													showLoadingBar({
+														wait: .5,
+														pct: 100
+													})
+												}
+											});
+										}
+									});
+								});
+							});
+						</script>
+					</td>
+					<td>
+						Partial loading of the progress bar, this will create several animation instances and can be used in case if you request more than one HTTP request. See the example below.
+						
+						<br />
+						<br />
+						Sample code: <br />
+						<pre>showLoadingBar({
+	pct: 78,
+	delay: 1.2,
+	finish: function(pct)
+	{
+		showLoadingBar({
+			pct: 30,
+			delay: 1.7,
+			wait: .5,
+			finish: function()
+			{
+				showLoadingBar({
+					wait: .5,
+					pct: 100
+				})
+			}
+		});
+	}
+});</pre>
+					</td>
+				</tr>
+			</tbody>
+			
+		</table>
+		
+	</div>
+</div>
+
+
+
+<div class="panel panel-default">
+	<div class="panel-heading">
+		<h3 class="panel-title">API Functions</h3>
+		<div class="panel-options">
+			<a href="" data-toggle="panel">
+				<span class="collapse-icon">&ndash;</span>
+				<span class="expand-icon">+</span>
+			</a>
+			<a href="" data-toggle="remove">
+				&times;
+			</a>
+		</div>
+	</div>
+	<div class="panel-body">
+		
+				<pre>These functions are part of <strong>$pageLoadingBar</strong> and they are located on <strong>xenon.factory</strong></pre>
+			
+		<table class="table table-bordered">
+			<thead>
+				<tr>
+					<th>Function Name</th>
+					<th>Description and Usage Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				
+				
+				<tr>
+					<td>
+						<h4>showLoadingBar(options|percentage)</h4>
+					</td>
+					<td class="middle-align">
+						This function will show the progress bar in the upper part of window, and can be called in two ways:
+						
+						<br />
+						<br />
+						1. Percentage - Simply fills the progress bar but do not do any action: <br />
+						
+						<pre>showLoadingBar(100);</pre>
+						
+						<br />
+						<br />
+						2. Options - Its more flexible than the percentage, because here you can adjust delay, wait time, percentage and assign events (before and finish).
+						
+						<br />
+						<br />
+						Example:
+						<br />
+						<pre>showLoadingBar({
+pct: 100, // number from 0-100,
+delay: 1.3, // seconds to fully load the percentage (seconds unit)
+wait: 0, // before starting loading will wait for specified seconds (seconds unit)
+before: function(pct){ ... }, // Before starting to fill the progress, this function will be called,
+finish: function(pct){ ... }, // After the progress bar finishes loading the specified percentage,
+resetOnEnd: true // Will set the percentage to 0 and will be hidden after the progress bar hits 100%
+});</pre>
+					</td>
+				</tr>
+				
+				
+				<tr>
+					<td>
+						<h4>hideLoadingBar()</h4>
+					</td>
+					<td class="middle-align">
+						Simply hides the progress bar even if it is currently in progress.
+					</td>
+				</tr>
+			
+			</tbody>
+		</table>
+			
+	</div>
+</div>

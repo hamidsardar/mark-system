@@ -1,0 +1,200 @@
+<page-title ng-if="layoutOptions.pageTitles" title="Edit Site" description="Site Management"></page-title>
+
+<form name="myForm" method="post" novalidate>
+	<div class="panel panel-headerless">
+		<div class="panel-body">
+
+			<div class="member-form-add-header">
+				<div class="row">
+					<div class="col-md-2 col-sm-4 pull-right-sm">
+
+						<div class="action-buttons">
+							<button type="submit" class="btn btn-block btn-secondary" ng-click="submitSite()" ng-disabled="lock_form || myForm.$invalid">Save Changes</button>
+							<!-- <button type="reset" class="btn btn-block btn-gray" ng-click="resetDefaults()">Reset to Default</button> -->
+						</div>
+
+					</div>
+					<div class="col-md-10 col-sm-8">
+                        <!-- <h3 class="panel-title">Locate Site</h3> -->
+					</div>
+				</div>
+			</div>
+
+
+			<div class="member-form-inputs">
+				<div class="row">
+          <div class="col-sm-3">
+            <label class="control-label">Region</label>
+          </div>
+          <div class="col-sm-6">
+            <select class="form-control" name="regionID" id="ddl_region" ng-model="site.regionID" required
+               ng-options="x.regionID as x.name for x in regions">
+               <option></option>
+            </select>
+          </div>
+          <div class="col-sm-3">
+            <span style="color:red" ng-show="myForm.regionID.$dirty && myForm.regionID.$invalid">
+              <span ng-show="myForm.regionID.$error.required">Site is required.</span>
+            </span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-3">
+            <label class="control-label">Site Type</label>
+          </div>
+          <div class="col-sm-6">
+            <select class="form-control" name="sitetypeID" id="ddl_sitetype" ng-model="site.sitetypeID" required
+               ng-options="x.sitetypeID as x.name for x in sitetypes">
+               <option></option>
+            </select>
+          </div>
+          <div class="col-sm-3">
+            <span style="color:red" ng-show="myForm.sitetypeID.$dirty && myForm.sitetypeID.$invalid">
+              <span ng-show="myForm.sitetypeID.$error.required">Site Type is required.</span>
+            </span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-3">
+            <label class="control-label" for="name">Site Name</label>
+          </div>
+          <div class="col-sm-6">
+            <input type="text" class="form-control" name="name" id="name" value="" ng-model="site.name" ng-required="true"  maxlength="50" required/>
+          </div>
+          <div class="col-sm-3">
+            <span style="color:red" ng-show="myForm.name.$dirty && myForm.name.$invalid">
+              <span ng-show="myForm.name.$error.required">Name is required.</span>
+            </span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-3">
+            <label class="control-label" for="manager">Manager</label>
+          </div>
+          <div class="col-sm-6">
+            <input type="text" class="form-control" name="manager" id="manager" value="" ng-model="site.manager" ng-required="true"  maxlength="50" required/>
+          </div>
+          <div class="col-sm-3">
+            <span style="color:red" ng-show="myForm.manager.$dirty && myForm.manager.$invalid">
+              <span ng-show="myForm.manager.$error.required">Manager is required.</span>
+            </span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-3">
+            <label class="control-label" for="email">Email</label>
+          </div>
+          <div class="col-sm-6">
+            <input type="email" class="form-control" name="email" id="email" value="" ng-model="site.email" ng-required="true"  maxlength="50" required/>
+          </div>
+          <div class="col-sm-3">
+            <span style="color:red" ng-show="myForm.email.$dirty && myForm.email.$invalid">
+              <span ng-show="myForm.email.$error.required">Email is required.</span>
+            </span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-3">
+            <label class="control-label" for="phone">Phone</label>
+          </div>
+          <div class="col-sm-6">
+            <input type="tel" class="form-control" name="phone" id="phone" value="" ng-model="site.phone" ng-required="true"  maxlength="50" required/>
+          </div>
+          <div class="col-sm-3">
+            <span style="color:red" ng-show="myForm.phone.$dirty && myForm.phone.$invalid">
+              <span ng-show="myForm.phone.$error.required">Phone is required.</span>
+            </span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-3">
+            <label class="control-label" for="fax">FAX</label>
+          </div>
+          <div class="col-sm-6">
+            <input type="text" class="form-control" name="fax" id="fax" value="" ng-model="site.fax" ng-required="true"  maxlength="50" required/>
+          </div>
+          <div class="col-sm-3">
+            <span style="color:red" ng-show="myForm.fax.$dirty && myForm.fax.$invalid">
+              <span ng-show="myForm.fax.$error.required">FAX is required.</span>
+            </span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-3">
+            <label class="control-label" for="address1">Address 1</label>
+          </div>
+          <div class="col-sm-6">
+            <input type="text" class="form-control" name="address1" id="address1" value="" ng-model="site.address1" ng-required="true"  maxlength="50" required/>
+          </div>
+          <div class="col-sm-3">
+            <span style="color:red" ng-show="myForm.address1.$dirty && myForm.address1.$invalid">
+              <span ng-show="myForm.address1.$error.required">Address1 is required.</span>
+            </span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-3">
+            <label class="control-label" for="address2">Address 2</label>
+          </div>
+          <div class="col-sm-6">
+            <input type="text" class="form-control" name="address2" id="address2" value="" ng-model="site.address2" maxlength="50"/>
+          </div>
+          <div class="col-sm-3">
+          <!-- 
+            <span style="color:red" ng-show="myForm.address2.$dirty && myForm.address2.$invalid">
+              <span ng-show="myForm.address2.$error.required">Address2 is required.</span>
+            </span>
+           -->
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-3">
+            <label class="control-label" for="zipcode">Zip/Postal</label>
+          </div>
+          <div class="col-sm-6">
+            <input type="text" class="form-control" name="zipcode" id="zipcode" value="" ng-model="site.zipcode" ng-required="true"  maxlength="50" required/>
+          </div>
+          <div class="col-sm-3">
+            <span style="color:red" ng-show="myForm.zipcode.$dirty && myForm.zipcode.$invalid">
+              <span ng-show="myForm.zipcode.$error.required">Zip/Postal is required.</span>
+            </span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-3">
+            <label class="control-label">Country</label>
+          </div>
+          <div class="col-sm-6">
+            <select class="form-control" name="country" id="ddl_country" ng-model="site.country" required
+               ng-options="code as name for (code, name) in countries">
+               <option></option>
+            </select>
+          </div>
+          <div class="col-sm-3">
+            <span style="color:red" ng-show="myForm.country.$dirty && myForm.country.$invalid">
+              <span ng-show="myForm.country.$error.required">Country is required.</span>
+            </span>
+          </div>
+        </div>
+        <div class="row" ng-show="states">
+          <div class="col-sm-3">
+            <label class="control-label">State</label>
+          </div>
+          <div class="col-sm-6">
+            <select class="form-control" name="state" id="ddl_state" ng-model="site.state" 
+               ng-options="code as name for (code, name) in states">
+               <option></option>
+            </select>
+          </div>
+          <div class="col-sm-3">
+            <span style="color:red" ng-show="myForm.state.$dirty && myForm.state.$invalid">
+              <span ng-show="myForm.state.$error.required">State is required.</span>
+            </span>
+          </div>
+        </div>
+      </div>
+			</div>
+
+		</div>
+	</div>
+</form>

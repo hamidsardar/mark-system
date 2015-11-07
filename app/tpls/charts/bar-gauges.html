@@ -1,0 +1,225 @@
+
+
+	<page-title ng-if="layoutOptions.pageTitles" title="Bar Gauges" description="Data visualization widgets for your stats"></page-title>
+
+
+<div class="dx-warning hidden">
+	<div>
+		<h2>How to Include Charts Library in Xenon Theme</h2>
+
+		<p>The reason why you don't see charts like in the Xenon demo website is because of license restrictions from DevExpress company. <a href="http://js.devexpress.com/DevExtremeWeb/?folder=EULAs" target="_blank">Click here</a> to read license agreement.</p>
+		<p>Even that we have purchased the developer license we are not permitted to include the DevExtreme Web Charts JavaScript library in the default download file of Xenon theme, however you can include DevExpress Charts library manually and takes just few minutes:</p>
+
+		<ol>
+			<li>Download <strong>DevExtreme Web</strong> JavaScript library by clicking <a href="https://go.devexpress.com/DevExpressDownload_DevExtremeWebTrial.aspx" class="text-bold">here</a>. If the link doesn't work, then <a href="http://js.devexpress.com/Buy/" target="_parent"><strong>click this one</strong></a> and choose DevExtreme Web package to download.</li>
+			<li>Extract the downloaded archive. There you will find <strong>Lib/</strong> folder. <strong>Copy</strong> the folders inside.</li>
+			<li><strong>Paste</strong> copied files to <strong>assets/js/devexpress-web-14.1/</strong></li>
+			<li>You are all set! Charts will look the same just like in the demo website.</li>
+		</ol>
+	</div>
+</div>
+<script type="text/javascript">
+	jQuery(document).ready(function($)
+	{
+		if( ! $.isFunction($.fn.dxChart))
+			$(".dx-warning").removeClass('hidden');
+	});
+</script>
+
+<script>
+	var xenonPalette = ['#68b828','#7c38bc','#0e62c7','#fcd036','#4fcdfc','#00b19d','#ff6264','#f7aa47'];
+</script>
+
+<div class="row">
+	<div class="col-sm-12">
+	
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title">Labels Customization</h3>
+				<div class="panel-options">
+					<a href="" data-toggle="panel">
+						<span class="collapse-icon">&ndash;</span>
+						<span class="expand-icon">+</span>
+					</a>
+					<a href="" data-toggle="remove">
+						&times;
+					</a>
+				</div>
+			</div>
+			<div class="panel-body">
+				<script type="text/javascript">
+					jQuery(document).ready(function($)
+					{
+						if( ! $.isFunction($.fn.dxChart))
+							return;
+							
+						$('#bar-gauge-1').dxBarGauge({
+							startValue: 0,
+							endValue: 100,
+							values: [47.27, 65.32, 84.59, 71.86],
+							label: {
+								indent: 30,
+								format: 'fixedPoint',
+								precision: 1,
+								customizeText: function (arg) {
+									return arg.valueText + ' %';
+								}
+							},
+							title: {
+								text: "Series' Ratings",
+								font: {
+									size: 28
+								}
+							},
+							palette: xenonPalette
+						});
+					});
+					
+					function between(randNumMin, randNumMax)
+					{
+						var randInt = Math.floor((Math.random() * ((randNumMax + 1) - randNumMin)) + randNumMin);
+						
+						return randInt;
+					}
+				</script>
+				
+				<div id="bar-gauge-1" style="height: 440px; width: 100%;"></div>
+				<br />
+				<div class="text-center">
+					<a href="" id="gauge-1-randomize" class="btn btn-pink btn-small">Randomize</a>
+					<a href="" id="gauge-1-res" class="btn btn-white btn-small">Restart</a>
+				</div>
+			</div>
+		</div>
+			
+	</div>
+</div>
+
+
+<div class="row">
+	<div class="col-sm-12">
+	
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title">Palette</h3>
+				<div class="panel-options">
+					<a href="" data-toggle="panel">
+						<span class="collapse-icon">&ndash;</span>
+						<span class="expand-icon">+</span>
+					</a>
+					<a href="" data-toggle="remove">
+						&times;
+					</a>
+				</div>
+			</div>
+			<div class="panel-body">
+				<script type="text/javascript">
+					jQuery(document).ready(function($)
+					{
+						if( ! $.isFunction($.fn.dxChart))
+							return;
+							
+						$('#bar-gauge-2').dxBarGauge({
+							startValue: -50,
+							endValue: 50,
+							baseValue: 0,
+							values: [-21.3, 14.8, -30.9, 45.2],
+							label: {
+								customizeText: function (arg) {
+									return arg.valueText + ' mm';
+								}
+							},
+							palette: 'ocean',
+							title: {
+								text: 'Deviations in the Manufactured Parts',
+								font: {
+									size: 28
+								}
+							}
+						});
+					});
+				</script>
+				
+				<div id="bar-gauge-2" style="height: 440px; width: 100%;"></div>
+			</div>
+		</div>
+			
+	</div>
+</div>
+
+
+<div class="row">
+	<div class="col-sm-12">
+	
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title">Variable Number of Bars</h3>
+				<div class="panel-options">
+					<a href="" data-toggle="panel">
+						<span class="collapse-icon">&ndash;</span>
+						<span class="expand-icon">+</span>
+					</a>
+					<a href="" data-toggle="remove">
+						&times;
+					</a>
+				</div>
+			</div>
+			<div class="panel-body">
+				<script type="text/javascript">
+					jQuery(document).ready(function($)
+					{
+						if( ! $.isFunction($.fn.dxChart))
+							return;
+							
+						$('#bar-gauge-3').append(
+							'<div id="gauge" style="width: 80%; height: 100%; margin-top: 20px; float: left;"></div>',
+							'<div id="panel" style="width: 20%; text-align: left; margin-top: 20px; float: left;"></div>'
+						);
+						
+						var products = [
+						  { name: 'Hummers', count: 41 },
+						  { name: 'Shovers', count: 32 },
+						  { name: 'Ladders', count: 13 },
+						  { name: 'Watering cans', count: 48 },
+						  { name: 'Screwdrivers', count: 24 },
+						  { name: 'Nail pullers', count: 8 },
+						  { name: 'Drills', count: 19 }
+						];
+						
+						var gauge = $('#gauge').dxBarGauge({
+							startValue: 0,
+							endValue: 50,
+							label: {
+								format: 'fixedPoint',
+								precision: 0
+							},
+							palette: xenonPalette
+						}).dxBarGauge('instance');
+						
+						$('#panel').append($.map(products, function (product) {
+							return $('<div></div>').append(
+								'<input type="checkbox" class="cbr" value="' + product.count + '" checked></input>',
+								'<span style="margin-left: 10px;">' + product.name + '</span>'
+							);
+						}));
+						
+						var $inputs = $('#panel input').change(handleChange);
+						
+						function handleChange () {
+							var values = $.map($inputs, function (input) {
+								return $(input).prop('checked') ? $(input).val() : null;
+							});
+							gauge.values(values);
+						}
+						
+						handleChange();
+						cbr_replace();
+					});
+				</script>
+				
+				<div id="bar-gauge-3" style="height: 440px; width: 100%;"></div>
+			</div>
+		</div>
+			
+	</div>
+</div>

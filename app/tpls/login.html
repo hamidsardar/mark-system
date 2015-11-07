@@ -1,0 +1,69 @@
+
+<div class="login-container">
+
+	<div class="row">
+
+		<div class="loging_form">
+
+			<!-- Errors container -->
+			<div class="errors-container">
+
+				
+			</div>
+
+			<!-- Add class "fade-in-effect" for login form effect -->
+			<form method="post" role="form" id="login" class="login-form fade-in-effect" style="background-color:white;">
+				
+				<div class="login-header">
+					<a href="#/app/dashboard" class="logo" style="background-color:#18AEED">
+						<img src="assets/images/logo.png" alt="" width="132" />
+						<span></span>
+					</a>
+
+					<!-- <p>Dear user, log in to access the admin area!</p> -->
+				</div>
+
+				<div class="form-group">
+					<label class="control-label" for="email">Email or Username</label>
+					<input type="email" name="email" class="form-control input-dark" autocomplete="off" ng-model="user.email" />
+				</div>
+
+				<div class="form-group">
+					<label class="control-label" for="passwd">Password</label>
+					<input type="password" name="password" class="form-control input-dark" autocomplete="off" ng-model="user.password" />
+				</div>
+
+				<div class="form-group">
+					<button type="submit" class="btn btn-dark  btn-block text-left">
+						<i class="fa-lock"></i>
+						Log In
+					</button>
+				</div>
+
+			</form>
+
+			<!-- External login -->
+			<!--<div class="external-login">
+				<a href="" class="facebook">
+					<i class="fa-facebook"></i>
+					Facebook Login
+				</a>-->
+
+				<!-- 
+				<a href="<?php _hash(); ?>" class="twitter">
+					<i class="fa-twitter"></i>
+					Login with Twitter
+				</a>
+
+				<a href="<?php _hash(); ?>" class="gplus">
+					<i class="fa-google-plus"></i>
+					Login with Google Plus
+				</a>
+				 -->
+			</div>
+
+		</div>
+
+	</div>
+
+</div>

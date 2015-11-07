@@ -1,0 +1,224 @@
+
+
+	<page-title ng-if="layoutOptions.pageTitles" title="Linear Gauges" description="Data visualization widgets for your stats"></page-title>
+
+
+<div class="dx-warning hidden">
+	<div>
+		<h2>How to Include Charts Library in Xenon Theme</h2>
+
+		<p>The reason why you don't see charts like in the Xenon demo website is because of license restrictions from DevExpress company. <a href="http://js.devexpress.com/DevExtremeWeb/?folder=EULAs" target="_blank">Click here</a> to read license agreement.</p>
+		<p>Even that we have purchased the developer license we are not permitted to include the DevExtreme Web Charts JavaScript library in the default download file of Xenon theme, however you can include DevExpress Charts library manually and takes just few minutes:</p>
+
+		<ol>
+			<li>Download <strong>DevExtreme Web</strong> JavaScript library by clicking <a href="https://go.devexpress.com/DevExpressDownload_DevExtremeWebTrial.aspx" class="text-bold">here</a>. If the link doesn't work, then <a href="http://js.devexpress.com/Buy/" target="_parent"><strong>click this one</strong></a> and choose DevExtreme Web package to download.</li>
+			<li>Extract the downloaded archive. There you will find <strong>Lib/</strong> folder. <strong>Copy</strong> the folders inside.</li>
+			<li><strong>Paste</strong> copied files to <strong>assets/js/devexpress-web-14.1/</strong></li>
+			<li>You are all set! Charts will look the same just like in the demo website.</li>
+		</ol>
+	</div>
+</div>
+<script type="text/javascript">
+	jQuery(document).ready(function($)
+	{
+		if( ! $.isFunction($.fn.dxChart))
+			$(".dx-warning").removeClass('hidden');
+	});
+</script>
+
+<div class="row">
+	<div class="col-sm-12">
+	
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title">Linear Gauges</h3>
+				<div class="panel-options">
+					<a href="" data-toggle="panel">
+						<span class="collapse-icon">&ndash;</span>
+						<span class="expand-icon">+</span>
+					</a>
+					<a href="" data-toggle="remove">
+						&times;
+					</a>
+				</div>
+			</div>
+			<div class="panel-body">
+				
+				<div class="row">
+							
+					<div class="col-sm-6">
+						
+						<script type="text/javascript">
+							jQuery(document).ready(function($)
+							{
+								if( ! $.isFunction($.fn.dxChart))
+									return;
+									
+								var gauge = $('#gauge-linear-1').dxLinearGauge({
+									scale: {
+										startValue: 0,
+										endValue: 5,
+										majorTick: {
+											tickInterval: 2.5
+										},
+										minorTick: {
+											visible: true,
+											tickInterval: 0.625
+										}
+									},
+									title: {
+										text: 'TV Show Rating',
+										font: { size: 28 }
+									},
+									value: 4.3
+								}).dxLinearGauge('instance');
+								
+								
+								$("#gauge-linear-1-randomize").on('click', function(ev)
+								{
+									ev.preventDefault();
+									
+									gauge.value(between(0, 5));
+								});
+							});
+							
+							function between(randNumMin, randNumMax)
+							{
+								var randInt = Math.floor((Math.random() * ((randNumMax + 1) - randNumMin)) + randNumMin);
+								
+								return randInt;
+							}
+						</script>
+						
+						<h4 class="no-top-margin">Scale Custom Tick Interval</h4>
+						<div id="gauge-linear-1" style="height: 400px;"></div>
+						
+						<div class="text-center">
+							<a href="" id="gauge-linear-1-randomize" class="btn btn-turquoise btn-small">Randomize</a>
+						</div>
+						
+					</div>
+					
+					<div class="col-sm-6">
+						
+						<script type="text/javascript">
+							jQuery(document).ready(function($)
+							{
+								if( ! $.isFunction($.fn.dxChart))
+									return;
+									
+								var gauge = $('#gauge-linear-2').dxLinearGauge({
+									geometry: { orientation: 'vertical' },
+									scale: {
+										startValue: 0,
+										endValue: 50,
+										majorTick: {
+											customTickValues: [0, 10, 25, 50],
+											showCalculatedTicks: false
+										}
+									},
+									title: {
+										text: 'Fuel Volume (in Liters)',
+										font: { size: 28 }
+									},
+									value: 35
+								}).dxLinearGauge('instance');
+								
+								
+								$("#gauge-linear-2-randomize").on('click', function(ev)
+								{
+									ev.preventDefault();
+									
+									gauge.value(between(0, 50));
+								});
+							});
+						</script>
+						
+						<h4 class="no-top-margin">Scale Custom Tick Values</h4>
+						<div id="gauge-linear-2" style="height: 400px;"></div>
+						
+						<div class="text-center">
+							<a href="" id="gauge-linear-2-randomize" class="btn btn-turquoise btn-small">Randomize</a>
+						</div>
+						
+					</div>
+			
+				</div>
+				
+			</div>
+			
+			<hr />
+			
+			<div class="panel-body">
+				
+				<div class="row">
+							
+					<div class="col-sm-12">
+						
+						<script type="text/javascript">
+							jQuery(document).ready(function($)
+							{
+								if( ! $.isFunction($.fn.dxChart))
+									return;
+									
+								var gauge = $('#gauge-linear-3-1').dxLinearGauge({
+									scale: {
+										startValue: 0, endValue: 30,
+										majorTick: {
+											color: '#536878',
+											tickInterval: 5
+										},
+										label: {
+											indentFromTick: -3
+										}
+									},
+									rangeContainer: {
+										offset: 10,
+										ranges: [
+											{ startValue: 0, endValue: 5, color: '#4fcdfc' },
+											{ startValue: 5, endValue: 20, color: '#fcd036' },
+											{ startValue: 20, endValue: 30, color: '#68b828' }
+										]
+									},
+									valueIndicator: {
+										offset: 20
+									},
+									subvalueIndicator: {
+										offset: -15
+									},
+									title: {
+										text: 'Issues Closed (with Min and Max Expected)',
+										font: { size: 28 }
+									},
+									value: 17,
+									subvalues: [5, 25]
+								}).dxLinearGauge('instance');
+								
+								
+								$("#gauge-linear-3-randomize").on('click', function(ev)
+								{
+									ev.preventDefault();
+									
+									gauge.value(between(10, 50));
+								});
+							});
+							
+						</script>
+						
+						<h4 class="no-top-margin">Custom Layout</h4>
+						
+						<div id="gauge-linear-3-1" style="height: 120px;"></div>
+						
+						<div class="text-center">
+							<a href="" id="gauge-linear-3-randomize" class="btn btn-turquoise btn-small">Randomize</a>
+						</div>
+						
+					</div>
+			
+				</div>
+				
+			</div>
+		</div>
+			
+	</div>
+</div>

@@ -1,0 +1,71 @@
+<page-title ng-if="layoutOptions.pageTitles" title="Edit Region" description="Region Management"></page-title>
+
+<form name="myForm" method="post" novalidate>
+	<div class="panel panel-headerless">
+		<div class="panel-body">
+
+			<div class="member-form-add-header">
+				<div class="row">
+					<div class="col-md-2 col-sm-4 pull-right-sm">
+
+						<div class="action-buttons">
+							<button type="submit" class="btn btn-block btn-secondary" ng-click="submitRegion()" ng-disabled="lock_form || myForm.$invalid">Save Changes</button>
+							<!-- <button type="reset" class="btn btn-block btn-gray" ng-click="resetDefaults()">Reset to Default</button> -->
+						</div>
+
+					</div>
+					<div class="col-md-10 col-sm-8">
+                        <!-- <h3 class="panel-title">Locate Region</h3> -->
+					</div>
+				</div>
+			</div>
+
+
+			<div class="member-form-inputs">
+				<div class="row">
+          <div class="col-sm-3">
+            <label class="control-label" for="name">Name</label>
+          </div>
+          <div class="col-sm-6">
+            <input type="text" class="form-control" name="name" id="name" value="" ng-model="region.name" ng-required="true"  maxlength="50" required/>
+          </div>
+          <div class="col-sm-3">
+            <span style="color:red" ng-show="myForm.name.$dirty && myForm.name.$invalid">
+              <span ng-show="myForm.name.$error.required">Name is required.</span>
+            </span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-3">
+            <label class="control-label" for="manager">Manager</label>
+          </div>
+          <div class="col-sm-6">
+            <input type="text" class="form-control" name="manager" id="manager" value="" ng-model="region.manager" ng-required="true"  maxlength="50" required/>
+          </div>
+          <div class="col-sm-3">
+            <span style="color:red" ng-show="myForm.manager.$dirty && myForm.manager.$invalid">
+              <span ng-show="myForm.manager.$error.required">Link is required.</span>
+            </span>
+          </div>
+        </div>
+        <div class="row" ng-show="currentUser.isAdmin">
+          <div class="col-sm-3">
+            <label class="control-label">Customer</label>
+          </div>
+          <div class="col-sm-6">
+            <select class="form-control" name="customerID" id="ddl_customer" ng-model="region.customerID" ng-required="true && currentUser.isAdmin"
+               ng-options="x.id as x.value for x in customers">
+               <option></option>
+            </select>
+          </div>
+          <div class="col-sm-3">
+            <span style="color:red" ng-show="myForm.customerID.$dirty && myForm.customerID.$invalid">
+              <span ng-show="myForm.customerID.$error.required">Customer is required.</span>
+            </span>
+          </div>
+        </div>
+			</div>
+
+		</div>
+	</div>
+</form>

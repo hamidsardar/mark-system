@@ -1,0 +1,46 @@
+<page-title ng-if="layoutOptions.pageTitles" title="Zone Types" description="Zone Type Management"></page-title>
+
+<div class="row">
+
+	<div class="col-md-12">
+
+		<tabset>
+			<tab heading="All Zone Types">
+				<table class="table table-hover members-table middle-align">
+					<thead>
+						<tr class="replace-inputs">
+              <th>Zone Type Name</th>
+              <th>Replen Source</th>
+							<th>Settings</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="zonetype in data" ng-hide="zonetype.deleted">
+							<td class="user-name">{{ zonetype.name }}</td>
+              <td class="user-name">{{{1: 'Yes', 0: 'No'}[zonetype.replenSource]}}</td>
+							<td class="action-links">
+								<a href="" class="edit" ng-click="editZonetype(zonetype.zonetypeID)">
+									<i class="linecons-pencil"></i>
+									Edit Zone Type
+								</a>
+		
+								<a href="" class="delete" ng-click="deleteZonetype(zonetype)">
+									<i class="linecons-trash"></i>
+									Delete
+								</a>
+								
+							</td>
+						</tr>
+						
+					</tbody>
+					
+				</table>
+				<div class="selected-actions" >
+					<a href="#/app/zonetype-manager-add-zonetype" class="edit" style="color: green">Add a Zone Type</a>								
+				</div>
+			</tab>
+		</tabset>
+							
+	</div>
+	
+</div>

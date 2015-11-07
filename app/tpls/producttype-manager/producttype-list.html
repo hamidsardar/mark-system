@@ -1,0 +1,52 @@
+<page-title ng-if="layoutOptions.pageTitles" title="Product Types" description="Product Type Management"></page-title>
+
+<div class="row">
+
+	<div class="col-md-12">
+
+		<tabset>
+			<tab heading="All Product Types">
+				<table class="table table-hover members-table middle-align">
+					<thead>
+						<tr class="replace-inputs">
+							<th>Customer</th>
+              <th>Product Type Name</th>
+              <th>Pack Qty</th>
+							<th>Settings</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="producttype in data" ng-hide="producttype.deleted">
+							<td class="user-name">
+								<a href="" class="name" ng-click="editProducttype(producttype.producttypeID)">
+								{{ producttype.customer }}
+								</a>
+							</td>
+							<td class="user-name">{{ producttype.name }}</td>
+              <td class="user-name">{{ producttype.quantity }}</td>
+							<td class="action-links">
+								<a href="" class="edit" ng-click="editProducttype(producttype.producttypeID)">
+									<i class="linecons-pencil"></i>
+									Edit Product Type
+								</a>
+		
+								<a href="" class="delete" ng-click="deleteProducttype(producttype)">
+									<i class="linecons-trash"></i>
+									Delete
+								</a>
+								
+							</td>
+						</tr>
+						
+					</tbody>
+					
+				</table>
+				<div class="selected-actions" >
+					<a href="#/app/producttype-manager-add-producttype" class="edit" style="color: green">Add a Product Type</a>								
+				</div>
+			</tab>
+		</tabset>
+							
+	</div>
+	
+</div>

@@ -1,0 +1,147 @@
+<page-title ng-if="layoutOptions.pageTitles" title="Add a User" description="User Management"></page-title>
+
+<form name="myForm" method="post">
+	<div class="panel panel-headerless">
+		<div class="panel-body">
+
+			<div class="member-form-add-header">
+				<div class="row">
+					<div class="col-md-2 col-sm-4 pull-right-sm">
+
+						<div class="action-buttons">
+							<button type="submit" class="btn btn-block btn-secondary" ng-disabled="lock_form">Save Changes</button>
+							<!-- <button type="reset" class="btn btn-block btn-gray" ng-click="resetDefaults()">Reset to Default</button> -->
+						</div>
+
+					</div>
+					<div class="col-md-10 col-sm-8">
+
+						<div class="user-img">
+							<img src="assets/images/user-4.png" class="img-circle" alt="user-pic" />
+						</div>
+						<div class="user-name">
+							<a href="">Add New</a>
+							<span>{{currentUser.userRole}}</span>
+						</div>
+
+					</div>
+				</div>
+			</div>
+
+
+			<div class="member-form-inputs">
+				<div class="row">
+					<div class="col-sm-3">
+						<label class="control-label" for="username">User Name</label>
+					</div>
+					<div class="col-sm-6">
+						<input type="text" class="form-control" name="username" id="username" value="" ng-model="user.username" ng-required="true" required/>
+					</div>
+					<div class="col-sm-3">
+						<span style="color:red" ng-show="myForm.username.$dirty && myForm.username.$invalid">
+							<span ng-show="myForm.username.$error.required">username is required.</span>
+						</span>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-sm-3">
+						<label class="control-label" for="fullBame">Full Name</label>
+					</div>
+					<div class="col-sm-6">
+						<input type="text" class="form-control" name="fullName" id="fullName" value="" ng-model="user.fullName" ng-required="true" required/>
+					</div>
+					<div class="col-sm-3">
+						<span style="color:red" ng-show="myForm.fullName.$dirty && myForm.fullName.$invalid">
+							<span ng-show="myForm.fullName.$error.required">Fullname is required.</span>
+						</span>
+					</div>
+				</div>
+				
+				<div class="row" ng-show="currentUser.isAdmin">
+					<div class="col-sm-3">
+						<label class="control-label">Customer</label>
+					</div>
+					<div class="col-sm-6">
+						<select class="form-control" name="customerID" id="ddl_customer" ng-model="user.customerID" ng-required="true && currentUser.isAdmin"
+							 ng-options="x.userID as x.company for x in customers">
+							 <option></option>
+						</select>
+					</div>
+					<div class="col-sm-3">
+						<span style="color:red" ng-show="myForm.customerID.$dirty && myForm.customerID.$invalid">
+							<span ng-show="myForm.customerID.$error.required">Customer is required.</span>
+						</span>
+					</div>
+				</div>
+				
+				<div class="row">
+					<div class="col-sm-3">
+						<label class="control-label" for="password">Password</label>
+					</div>
+					<div class="col-sm-6">
+						<input type="password" class="form-control" name="password" id="password" value="" ng-model="user.password" ng-required="true" required/>
+					</div>
+					<div class="col-sm-3">
+						<span style="color:red" ng-show="myForm.password.$dirty && myForm.password.$invalid">
+							<span ng-show="myForm.password.$error.required">Password is required.</span>
+						</span>
+					</div>
+				</div>
+				
+				<div class="row">
+					<div class="col-sm-3">
+						<label class="control-label" for="password_confirm">Confirm Password</label>
+					</div>
+					<div class="col-sm-6">
+						<input type="password" class="form-control" name="password_confirm" id="password_confirm" value="" required
+							 ng-model="user.password_confirm" ng-required="true" password-match="user.password"/>
+					</div>
+					<div class="col-sm-3">
+						<span style="color:red" ng-show="myForm.password_confirm.$dirty && myForm.password_confirm.$invalid">
+							<span ng-show="myForm.password_confirm.$error.match">Password Mismatch.</span>
+						</span>
+					</div>
+				</div>
+
+				<div class="row">
+          <div class="col-sm-3">
+            <label class="control-label">Country</label>
+          </div>
+          <div class="col-sm-6">
+            <select class="form-control" name="country" id="ddl_country" ng-model="user.country" required
+               ng-options="code as name for (code, name) in countries">
+               <option></option>
+            </select>
+          </div>
+          <div class="col-sm-3">
+            <span style="color:red" ng-show="myForm.country.$dirty && myForm.country.$invalid">
+              <span ng-show="myForm.country.$error.required">Country is required.</span>
+            </span>
+          </div>
+        </div>
+
+				<div class="row">
+					<div class="col-sm-3">
+						<label class="control-label">Module Access</label>
+					</div>
+					<div class="col-sm-9">
+						<select class="form-control" multiple="multiple" name="module" id="multi-select1" ng-model="user.module" ng-options="x.id as x.value for x in module_options">
+						</select>
+					</div>
+				</div>
+        
+        <div class="row">
+          <div class="col-sm-3">
+            <label class="control-label">Site Access</label>
+          </div>
+          <div class="col-sm-9">
+            <select class="form-control" multiple="multiple" name="site" id="multi-select2" ng-model="user.site" ng-options="x.siteID as x.name for x in sites">
+            </select>
+          </div>
+        </div>
+			</div>
+
+		</div><!-- panel-body -->
+	</div><!-- .panel -->
+</form>

@@ -1,0 +1,233 @@
+
+
+	<page-title ng-if="layoutOptions.pageTitles" title="Input Mask" description="Control the input with regular expressions while user types on it"></page-title>
+
+<p class="well text-center">
+	<span class="text-primary">Fields are not required, however you can only type within the allowed format.</span>
+</p>
+
+<form role="form">
+
+	<div class="row">
+		<div class="col-sm-6">
+			
+			<div class="panel panel-default">
+			
+				<div class="panel-heading">
+					<div class="panel-title">Numeric Mask</div>
+				</div>
+				
+				<div class="panel-body">
+					
+					<div class="form-group">
+						<label class="control-label">Basic Usage</label>
+						
+						<div class="input-group input-group-sm input-group-minimal">
+							<span class="input-group-addon">
+								<i class="fa-sort-numeric-desc"></i>
+							</span>
+							<input type="text" class="form-control" inputmask data-mask="999" placeholder="Three Numbers" />
+						</div>
+						
+						<br />
+						
+						<div class="input-group input-group-sm input-group-minimal">
+							<span class="input-group-addon">
+								<i class="fa-sort-numeric-asc"></i>
+							</span>
+							<input type="text" class="form-control" inputmask data-mask="decimal" placeholder="Decimal" />
+						</div>
+						
+						<br />
+						
+						<label class="control-label">Setting alignment</label>
+						
+						<div class="input-group input-group-sm input-group-minimal">
+							<input type="text" class="form-control" inputmask data-mask="9999" data-numeric="true" data-numeric-align="right" placeholder="Four Numbers Right" />
+							<span class="input-group-addon">
+								<i class="fa-sort-amount-desc"></i>
+							</span>
+						</div>
+						
+						<br />
+						
+						<div class="input-group input-group-sm input-group-minimal">
+							<span class="input-group-addon">
+								<i class="fa-sort-amount-asc"></i>
+							</span>
+							<input type="text" class="form-control" inputmask data-mask="fdecimal" placeholder="Formatted Decimal" data-dec="," data-rad="." maxlength="10" />
+						</div>
+						
+						
+					</div>
+					
+				</div>
+				
+			</div>
+			
+		</div>
+		<div class="col-sm-6">
+			
+			<div class="panel panel-default">
+			
+				<div class="panel-heading">
+					<div class="panel-title">Date and Time</div>
+				</div>
+				
+				<div class="panel-body">
+					
+					<div class="form-group">
+						<label class="control-label">Date</label>
+						
+						<div class="input-group input-group-sm input-group-minimal">
+							<span class="input-group-addon">
+								<i class="fa-calendar"></i>
+							</span>
+							<input type="text" class="form-control" inputmask data-mask="date" />
+						</div>
+						
+						<br />
+						
+						<div class="input-group input-group-sm input-group-minimal">
+							<span class="input-group-addon">
+								<i class="linecons-calendar"></i>
+							</span>
+							<input type="text" class="form-control" inputmask data-mask="d/m/y" />
+						</div>
+						
+					</div>
+					
+					<div class="form-group">
+						<label class="control-label">Date Time</label>
+						
+						<div class="input-group input-group-sm input-group-minimal">
+							<span class="input-group-addon">
+								<i class="linecons-clock"></i>
+							</span>
+							<input type="text" class="form-control" inputmask data-mask="datetime" />
+						</div>
+						
+						<br />
+						
+						<div class="input-group input-group-sm input-group-minimal">
+							<span class="input-group-addon">
+								<i class="fa-clock-o"></i>
+							</span>
+							<input type="text" class="form-control" inputmask data-mask="datetime12" />
+						</div>
+						
+					</div>
+					
+				</div>
+				
+			</div>
+			
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-6">
+			
+			<div class="panel panel-default">
+			
+				<div class="panel-heading">
+					<div class="panel-title">Email, Phone and Currency</div>
+				</div>
+				
+				<div class="panel-body">
+					
+					<div class="form-group">
+						<label class="control-label">Email</label>
+						
+						<div class="input-group input-group-sm input-group-minimal">
+							<span class="input-group-addon">
+								<i class="linecons-mail"></i>
+							</span>
+							<input type="text" class="form-control" inputmask data-mask="email" />
+						</div>
+					</div>
+					
+					<div class="form-group">
+						<label class="control-label">Phone</label>
+						
+						<div class="input-group input-group-sm input-group-minimal">
+							<span class="input-group-addon">
+								<i class="linecons-mobile"></i>
+							</span>
+							<input type="text" class="form-control" inputmask data-mask="phone" />
+						</div>
+					</div>
+					
+					<div class="form-group">
+						<label class="control-label">Currency</label>
+										
+						
+						<div class="input-group input-group-sm input-group-minimal">
+							<span class="input-group-addon">
+								<i class="linecons-money"></i>
+							</span>
+							<input type="text" class="form-control" inputmask data-mask="currency" data-sign="€" />
+						</div>
+						
+						<br />
+						
+						<div class="input-group input-group-sm input-group-minimal">
+							<span class="input-group-addon">
+								<i class="linecons-wallet"></i>
+							</span>
+							<input type="text" class="form-control" inputmask data-mask="rcurrency" data-sign="$" />
+						</div>
+					</div>
+					
+				</div>
+				
+			</div>
+			
+		</div>
+		<div class="col-sm-6">
+			
+			<div class="panel panel-default">
+			
+				<div class="panel-heading">
+					<div class="panel-title">Custom Formatting</div>
+				</div>
+				
+				<div class="panel-body">
+									
+					<div class="form-group">
+						<label class="control-label">Custom Formatting</label>
+						
+						<div class="input-group input-group-sm input-group-minimal">
+							<span class="input-group-addon">
+								<i class="linecons-user"></i>
+							</span>
+							<input type="text" class="form-control" inputmask data-mask="@\w+" data-is-regex="true" placeholder="@username" />
+						</div>
+						
+						<br />
+						
+						<div class="input-group input-group-sm input-group-minimal">
+							<span class="input-group-addon">
+								<i class="linecons-truck"></i>
+							</span>
+							<input type="text" class="form-control" inputmask data-mask="09-999-AA" placeholder="Kosovo Plate Format - 09-999-AA" />
+						</div>
+						
+						<br />
+						
+						<div class="input-group input-group-sm input-group-minimal">
+							<span class="input-group-addon">
+								<i class="linecons-beaker"></i>
+							</span>
+							<input type="text" class="form-control" inputmask data-mask="[A-Z][a-z][A-Z][a-z][A-Z][a-z][A-Z][a-z][A-Z][a-z]" data-is-regex="true" placeholder="Advanced Regex - One upper case, one lower case." />
+						</div>
+						
+					</div>
+					
+				</div>
+			
+			</div>
+			
+		</div>
+	</div>
+
+</form>

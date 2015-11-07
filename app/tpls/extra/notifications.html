@@ -1,0 +1,193 @@
+
+
+	<page-title ng-if="layoutOptions.pageTitles" title="Notifications" description="Toastr notifications plugin and their variants"></page-title>
+
+
+<div class="panel panel-default">
+	<div class="panel-heading">Toastr Examples</div>
+	<div class="panel-body">
+		
+		<table class="table">
+			<thead>
+				<tr>
+					<th width="25%">Example, Live Preview</th>
+					<th>Usage Directions</th>
+				</tr>
+			</thead>
+			
+			<tbody>
+				<tr>
+					<td class="middle-align">
+						<a href="javascript:;" onclick="toastr.info('<i class=fa-info></i>Are you the 6 fingered man?');" class="btn btn-info">Information Message</a>
+					</td>
+					<td>
+						Simple <strong>Toastr</strong> notification. To fire this notification the code below is executed:
+						<br />
+						<br />
+						<pre>toastr.info('Are you the 6 fingered man?');</pre>
+					</td>
+				</tr>
+				
+				<tr>
+					<td class="middle-align">
+						<a href="" id="success_msg_1" class="btn btn-success">Success Message</a>				
+					</td>
+					<td>
+						More advanced <strong>Toastr</strong> notification. It has <strong>close button</strong> and <strong>title</strong>.
+						
+						To fire this notification the code below is executed:
+						<br />
+						<br />
+						<pre>var opts = {
+			&quot;closeButton&quot;: true,
+			&quot;debug&quot;: false,
+			&quot;positionClass&quot;: &quot;toast-bottom-right&quot;,
+			&quot;onclick&quot;: null,
+			&quot;showDuration&quot;: &quot;300&quot;,
+			&quot;hideDuration&quot;: &quot;1000&quot;,
+			&quot;timeOut&quot;: &quot;5000&quot;,
+			&quot;extendedTimeOut&quot;: &quot;1000&quot;,
+			&quot;showEasing&quot;: &quot;swing&quot;,
+			&quot;hideEasing&quot;: &quot;linear&quot;,
+			&quot;showMethod&quot;: &quot;fadeIn&quot;,
+			&quot;hideMethod&quot;: &quot;fadeOut&quot;
+		};
+		
+		toastr.success(&quot;So me by marianne admitted speaking.&quot;, &quot;This is a title&quot;, opts);</pre>
+					</td>
+				</tr>
+				
+				<tr>
+					<td class="middle-align">
+						<a href="" id="danger_msg_1" class="btn btn-danger">Danger Message</a>
+					</td>
+					<td>
+						This notification will be placed as full-width on top. It has <strong>close button</strong> and <strong>title</strong>.
+						
+						To fire this notification the code below is executed:
+						<br />
+						<br />
+						<pre>var opts = {
+			&quot;closeButton&quot;: true,
+			&quot;debug&quot;: false,
+			&quot;positionClass&quot;: &quot;toast-top-full-width&quot;,
+			&quot;onclick&quot;: null,
+			&quot;showDuration&quot;: &quot;300&quot;,
+			&quot;hideDuration&quot;: &quot;1000&quot;,
+			&quot;timeOut&quot;: &quot;5000&quot;,
+			&quot;extendedTimeOut&quot;: &quot;1000&quot;,
+			&quot;showEasing&quot;: &quot;swing&quot;,
+			&quot;hideEasing&quot;: &quot;linear&quot;,
+			&quot;showMethod&quot;: &quot;fadeIn&quot;,
+			&quot;hideMethod&quot;: &quot;fadeOut&quot;
+		};
+		
+		toastr.error(&quot;Do to be agreeable conveying oh assurance. Wicket longer admire do barton vanity itself do in it. Preferred to sportsmen it engrossed listening.&quot;, &quot;Fanny at wrong table ye in&quot;, opts);</pre>
+					</td>
+				</tr>
+				
+				<tr>
+					<td class="middle-align">
+						<a href="" id="warning_msg_1" class="btn btn-warning">Warning Message</a>
+					</td>
+					<td>
+						This notification will be placed on bottom-right. It has <strong>close button</strong> and <strong>title</strong>.
+						
+						To fire this notification the code below is executed:
+						<br />
+						<br />
+						<pre>var opts = {
+			&quot;closeButton&quot;: true,
+			&quot;debug&quot;: false,
+			&quot;positionClass&quot;: &quot;toast-bottom-left&quot;,
+			&quot;onclick&quot;: null,
+			&quot;showDuration&quot;: &quot;300&quot;,
+			&quot;hideDuration&quot;: &quot;1000&quot;,
+			&quot;timeOut&quot;: &quot;5000&quot;,
+			&quot;extendedTimeOut&quot;: &quot;1000&quot;,
+			&quot;showEasing&quot;: &quot;swing&quot;,
+			&quot;hideEasing&quot;: &quot;linear&quot;,
+			&quot;showMethod&quot;: &quot;fadeIn&quot;,
+			&quot;hideMethod&quot;: &quot;fadeOut&quot;
+		};
+		
+		toastr.warning(&quot;Park gate sell they west hard for the.&quot;, null, opts);</pre>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		
+		<script type="text/javascript">
+			jQuery(document).ready(function($)
+			{
+				$("#success_msg_1").click(function(ev)
+				{
+					ev.preventDefault();
+					
+					var opts = {
+						"closeButton": true,
+						"debug": false,
+						"positionClass": "toast-bottom-right",
+						"onclick": null,
+						"showDuration": "300",
+						"hideDuration": "1000",
+						"timeOut": "5000",
+						"extendedTimeOut": "1000",
+						"showEasing": "swing",
+						"hideEasing": "linear",
+						"showMethod": "fadeIn",
+						"hideMethod": "fadeOut"
+					};
+		
+					toastr.success("So me by marianne admitted speaking.", "This is a title", opts);
+				});
+				
+				$("#danger_msg_1").click(function(ev)
+				{
+					ev.preventDefault();
+					
+					var opts = {
+						"closeButton": true,
+						"debug": false,
+						"positionClass": "toast-top-full-width",
+						"onclick": null,
+						"showDuration": "300",
+						"hideDuration": "1000",
+						"timeOut": "5000",
+						"extendedTimeOut": "1000",
+						"showEasing": "swing",
+						"hideEasing": "linear",
+						"showMethod": "fadeIn",
+						"hideMethod": "fadeOut"
+					};
+					
+					toastr.error("Do to be agreeable conveying oh assurance. Wicket longer admire do barton vanity itself do in it. Preferred to sportsmen it engrossed listening.", "Fanny at wrong table ye in", opts);
+				});
+				
+				$("#warning_msg_1").click(function(ev)
+				{
+					ev.preventDefault();
+					
+					var opts = {
+						"closeButton": true,
+						"debug": false,
+						"positionClass": "toast-bottom-left",
+						"onclick": null,
+						"showDuration": "300",
+						"hideDuration": "1000",
+						"timeOut": "5000",
+						"extendedTimeOut": "1000",
+						"showEasing": "swing",
+						"hideEasing": "linear",
+						"showMethod": "fadeIn",
+						"hideMethod": "fadeOut"
+					};
+					
+					toastr.warning("Park gate sell they west hard for the.", null, opts);
+				});
+			});
+		</script>
+		
+	</div>
+</div>
+		

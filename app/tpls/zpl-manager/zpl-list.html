@@ -1,0 +1,52 @@
+<page-title ng-if="layoutOptions.pageTitles" title="ZPLs" description="ZPL Management"></page-title>
+
+<div class="row">
+
+	<div class="col-md-12">
+
+		<tabset>
+			<tab heading="All ZPLs">
+				<table class="table table-hover members-table middle-align">
+					<thead>
+						<tr class="replace-inputs">
+							<th>Customer</th>
+              <th>ZPL Name</th>
+              <th>Pack Qty</th>
+							<th>Settings</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="zpl in data" ng-hide="zpl.deleted">
+							<td class="user-name">
+								<a href="" class="name" ng-click="editZPL(zpl.zplID)">
+								{{ zpl.customer }}
+								</a>
+							</td>
+							<td class="user-name">{{ zpl.name }}</td>
+              <td class="user-name">{{ zpl.quantity }}</td>
+							<td class="action-links">
+								<a href="" class="edit" ng-click="editZPL(zpl.zplID)">
+									<i class="linecons-pencil"></i>
+									Edit ZPL
+								</a>
+		
+								<a href="" class="delete" ng-click="deleteZPL(zpl)">
+									<i class="linecons-trash"></i>
+									Delete
+								</a>
+								
+							</td>
+						</tr>
+						
+					</tbody>
+					
+				</table>
+				<div class="selected-actions" >
+					<a href="#/app/zpl-manager-add-zpl" class="edit" style="color: green">Add a ZPL</a>								
+				</div>
+			</tab>
+		</tabset>
+							
+	</div>
+	
+</div>

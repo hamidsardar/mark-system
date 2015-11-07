@@ -1,0 +1,74 @@
+<page-title ng-if="layoutOptions.pageTitles" title="Edit Zone" description="Zone Management"></page-title>
+
+<form name="myForm" method="post" novalidate>
+	<div class="panel panel-headerless">
+		<div class="panel-body">
+
+			<div class="member-form-add-header">
+				<div class="row">
+					<div class="col-md-2 col-sm-4 pull-right-sm">
+
+						<div class="action-buttons">
+							<button type="submit" class="btn btn-block btn-secondary" ng-click="submitZone()" ng-disabled="lock_form || myForm.$invalid">Save Changes</button>
+							<!-- <button type="reset" class="btn btn-block btn-gray" ng-click="resetDefaults()">Reset to Default</button> -->
+						</div>
+
+					</div>
+					<div class="col-md-10 col-sm-8">
+                        <!-- <h3 class="panel-title">Locate Zone</h3> -->
+					</div>
+				</div>
+			</div>
+
+
+			<div class="member-form-inputs">
+				<div class="row">
+          <div class="col-sm-3">
+            <label class="control-label">Site</label>
+          </div>
+          <div class="col-sm-6">
+            <select class="form-control" name="siteID" id="ddl_site" ng-model="zone.siteID" ng-required="true" required
+               ng-options="x.siteID as x.name for x in sites">
+               <option></option>
+            </select>
+          </div>
+          <div class="col-sm-3">
+            <span style="color:red" ng-show="myForm.siteID.$dirty && myForm.siteID.$invalid">
+              <span ng-show="myForm.siteID.$error.required">Site is required.</span>
+            </span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-3">
+            <label class="control-label">Zone Type</label>
+          </div>
+          <div class="col-sm-6">
+            <select class="form-control" name="zonetypeID" id="ddl_zonetype" ng-model="zone.zonetypeID" ng-required="true" required
+               ng-options="x.zonetypeID as x.name for x in zonetypes">
+               <option></option>
+            </select>
+          </div>
+          <div class="col-sm-3">
+            <span style="color:red" ng-show="myForm.zonetypeID.$dirty && myForm.zonetypeID.$invalid">
+              <span ng-show="myForm.zonetypeID.$error.required">Zone Type is required.</span>
+            </span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-3">
+            <label class="control-label" for="name">Name</label>
+          </div>
+          <div class="col-sm-6">
+            <input type="text" class="form-control" name="name" id="name" value="" ng-model="zone.name" ng-required="true"  maxlength="50" required/>
+          </div>
+          <div class="col-sm-3">
+            <span style="color:red" ng-show="myForm.name.$dirty && myForm.name.$invalid">
+              <span ng-show="myForm.name.$error.required">Name is required.</span>
+            </span>
+          </div>
+        </div>
+			</div>
+
+		</div>
+	</div>
+</form>

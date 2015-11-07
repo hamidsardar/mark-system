@@ -1,0 +1,50 @@
+<page-title ng-if="layoutOptions.pageTitles" title="Departments" description="Department Management"></page-title>
+
+<div class="row">
+
+	<div class="col-md-12">
+
+		<tabset>
+			<tab heading="All Departments">
+				<table class="table table-hover members-table middle-align">
+					<thead>
+						<tr class="replace-inputs">
+							<th>Customer</th>
+              <th>Department Name</th>
+							<th>Settings</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="department in data" ng-hide="department.deleted">
+							<td class="user-name">
+								<a href="" class="name" ng-click="editDepartment(department.departmentID)">
+								{{ department.customer }}
+								</a>
+							</td>
+							<td class="user-name">{{ department.name }}</td>
+							<td class="action-links">
+								<a href="" class="edit" ng-click="editDepartment(department.departmentID)">
+									<i class="linecons-pencil"></i>
+									Edit Department
+								</a>
+		
+								<a href="" class="delete" ng-click="deleteDepartment(department)">
+									<i class="linecons-trash"></i>
+									Delete
+								</a>
+								
+							</td>
+						</tr>
+						
+					</tbody>
+					
+				</table>
+				<div class="selected-actions" >
+					<a href="#/app/department-manager-add-department" class="edit" style="color: green">Add a Department</a>								
+				</div>
+			</tab>
+		</tabset>
+							
+	</div>
+	
+</div>

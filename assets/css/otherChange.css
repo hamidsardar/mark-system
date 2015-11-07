@@ -1,0 +1,19 @@
+.sidebar-menu .logo-env .settings-icon a i {
+    display: none;
+}
+.collapsed .user-name-custom {
+	display : none !important;
+}
+
+.collapsed .user_profile_menu_label {
+	display : none !important;
+}
+.login-page {
+	padding-top: 0px;
+}
+.loging_form {
+	padding:5% 25%;
+}
+.nav.nav-tabs>li {
+    display: none;
+}

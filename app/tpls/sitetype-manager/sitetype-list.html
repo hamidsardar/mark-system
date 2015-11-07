@@ -1,0 +1,44 @@
+<page-title ng-if="layoutOptions.pageTitles" title="Site Types" description="Site Type Management"></page-title>
+
+<div class="row">
+
+	<div class="col-md-12">
+
+		<tabset>
+			<tab heading="All Site Types">
+				<table class="table table-hover members-table middle-align">
+					<thead>
+						<tr class="replace-inputs">
+              <th>Site Type Name</th>
+							<th>Settings</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="sitetype in data" ng-hide="sitetype.deleted">
+							<td class="user-name">{{ sitetype.name }}</td>
+							<td class="action-links">
+								<a href="" class="edit" ng-click="editSitetype(sitetype.sitetypeID)">
+									<i class="linecons-pencil"></i>
+									Edit Site Type
+								</a>
+		
+								<a href="" class="delete" ng-click="deleteSitetype(sitetype)">
+									<i class="linecons-trash"></i>
+									Delete
+								</a>
+								
+							</td>
+						</tr>
+						
+					</tbody>
+					
+				</table>
+				<div class="selected-actions" >
+					<a href="#/app/sitetype-manager-add-sitetype" class="edit" style="color: green">Add a Site Type</a>								
+				</div>
+			</tab>
+		</tabset>
+							
+	</div>
+	
+</div>

@@ -1,0 +1,70 @@
+<page-title ng-if="layoutOptions.pageTitles" title="Add Product Type" description="Product Type Management"></page-title>
+
+<form name="myForm" method="post">
+	<div class="panel panel-headerless">
+		<div class="panel-body">
+
+			<div class="member-form-add-header">
+				<div class="row">
+					<div class="col-md-2 col-sm-4 pull-right-sm">
+
+						<div class="action-buttons">
+							<button type="submit" class="btn btn-block btn-secondary" ng-disabled="lock_form">Save Changes</button>
+							<!-- <button type="reset" class="btn btn-block btn-gray" ng-click="resetDefaults()">Reset to Default</button> -->
+						</div>
+
+					</div>
+					<div class="col-md-10 col-sm-8">
+					</div>
+				</div>
+			</div>
+
+
+			<div class="member-form-inputs">
+        <div class="row">
+          <div class="col-sm-3">
+            <label class="control-label">Customer</label>
+          </div>
+          <div class="col-sm-6">
+            <select class="form-control" name="customerID" id="ddl_customer" ng-model="producttype.customerID" ng-required="true"
+               ng-options="x.userID as x.company for x in customers">
+               <option></option>
+            </select>
+          </div>
+          <div class="col-sm-3">
+            <span style="color:red" ng-show="myForm.customerID.$dirty && myForm.customerID.$invalid">
+              <span ng-show="myForm.customerID.$error.required">Customer is required.</span>
+            </span>
+          </div>
+        </div>
+				<div class="row">
+					<div class="col-sm-3">
+						<label class="control-label" for="name">Product Type Name</label>
+					</div>
+					<div class="col-sm-6">
+						<input type="text" class="form-control" name="name" id="name" value="" ng-model="producttype.name" ng-required="true"  maxlength="50" required/>
+					</div>
+					<div class="col-sm-3">
+						<span style="color:red" ng-show="myForm.name.$dirty && myForm.name.$invalid">
+							<span ng-show="myForm.name.$error.required">Product Type Name is required.</span>
+						</span>
+					</div>
+				</div>
+				<div class="row">
+          <div class="col-sm-3">
+            <label class="control-label" for="name">Pack Qty</label>
+          </div>
+          <div class="col-sm-6">
+            <input type="text" class="form-control" name="quantity" id="quantity" value="" ng-model="producttype.quantity" ng-required="true"  maxlength="50" required/>
+          </div>
+          <div class="col-sm-3">
+            <span style="color:red" ng-show="myForm.quantity.$dirty && myForm.quantity.$invalid">
+              <span ng-show="myForm.quantity.$error.required">Pack Qty is required.</span>
+            </span>
+          </div>
+        </div>
+			</div>
+
+		</div>
+	</div>
+</form>

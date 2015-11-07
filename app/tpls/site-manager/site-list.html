@@ -1,0 +1,62 @@
+<page-title ng-if="layoutOptions.pageTitles" title="Sites" description="Site Management"></page-title>
+
+<div class="row">
+
+	<div class="col-md-12">
+
+		<tabset>
+			<tab heading="All Sites">
+				<table class="table table-hover members-table middle-align">
+					<thead>
+						<tr class="replace-inputs">
+							<th>Site Name</th>
+							<th>Manager</th>
+              <th>Email</th>
+              <th>Phone</th>
+              <th>Zipcode</th>
+              <th>State</th>
+              <th>Country</th>
+              <th>FAX</th>
+							<th>Settings</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="site in data" ng-hide="site.deleted">
+							<td class="user-name">
+								<a href="" class="name" ng-click="editSite(site.siteID)">
+								{{ site.name }}
+								</a>
+							</td>
+							<td class="user-name">{{ site.manager }}</td>
+              <td class="user-name">{{ site.email }}</td>
+              <td class="user-name">{{ site.phone }}</td>
+              <td class="user-name">{{ site.zipcode }}</td>
+              <td class="user-name">{{ getStateName(site.country, site.state) }}</td>
+              <td class="user-name">{{ getCountryName(site.country) }}</td>
+              <td class="user-name">{{ site.fax }}</td>
+							<td class="action-links">
+								<a href="" class="edit" ng-click="editSite(site.siteID)">
+									<i class="linecons-pencil"></i>
+									Edit Site
+								</a>
+		
+								<a href="" class="delete" ng-click="deleteSite(site)">
+									<i class="linecons-trash"></i>
+									Delete
+								</a>
+								
+							</td>
+						</tr>
+						
+					</tbody>
+					
+				</table>
+				<div class="selected-actions" >
+					<a href="#/app/site-manager-add-site" class="edit" style="color: green">Add a Site</a>								
+				</div>
+			</tab>
+		</tabset>
+							
+	</div>
+	
+</div>

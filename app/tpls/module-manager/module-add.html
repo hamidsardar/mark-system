@@ -1,0 +1,68 @@
+<page-title ng-if="layoutOptions.pageTitles" title="Add Module" description="Module Management"></page-title>
+
+<form name="myForm" method="post">
+	<div class="panel panel-headerless">
+		<div class="panel-body">
+
+			<div class="member-form-add-header">
+				<div class="row">
+					<div class="col-md-2 col-sm-4 pull-right-sm">
+
+						<div class="action-buttons">
+							<button type="submit" class="btn btn-block btn-secondary" ng-disabled="lock_form">Save Changes</button>
+							<!-- <button type="reset" class="btn btn-block btn-gray" ng-click="resetDefaults()">Reset to Default</button> -->
+						</div>
+
+					</div>
+					<div class="col-md-10 col-sm-8">
+                        <!-- <h3 class="panel-title">Locate Module</h3> -->
+					</div>
+				</div>
+			</div>
+
+
+			<div class="member-form-inputs">
+				<div class="row">
+					<div class="col-sm-3">
+						<label class="control-label" for="name">Name</label>
+					</div>
+					<div class="col-sm-6">
+						<input type="text" class="form-control" name="name" id="name" value="" ng-model="module.name" ng-required="true"  maxlength="50" required/>
+					</div>
+					<div class="col-sm-3">
+						<span style="color:red" ng-show="myForm.name.$dirty && myForm.name.$invalid">
+							<span ng-show="myForm.name.$error.required">Name is required.</span>
+						</span>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-3">
+						<label class="control-label" for="link">Link</label>
+					</div>
+					<div class="col-sm-6">
+						<input type="text" class="form-control" name="link" id="link" value="" ng-model="module.link" ng-required="true"  maxlength="50" required/>
+					</div>
+					<div class="col-sm-3">
+						<span style="color:red" ng-show="myForm.link.$dirty && myForm.link.$invalid">
+							<span ng-show="myForm.link.$error.required">Link is required.</span>
+						</span>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-3">
+						<label class="control-label" for="icon">Icon</label>
+					</div>
+					<div class="col-sm-6">
+						<input type="text" class="form-control" name="icon" id="icon" value="" ng-model="module.icon" ng-required="true"  maxlength="50" required/>
+					</div>
+					<div class="col-sm-3">
+						<span style="color:red" ng-show="myForm.icon.$dirty && myForm.icon.$invalid">
+							<span ng-show="myForm.icon.$error.required">Icon is required.</span>
+						</span>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</form>

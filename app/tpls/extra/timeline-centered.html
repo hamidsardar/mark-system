@@ -1,0 +1,119 @@
+
+
+	<page-title ng-if="layoutOptions.pageTitles" title="Timeline" description="Center positioned timeline stories"></page-title>
+
+
+<div class="timeline-centered">
+	
+	<article class="timeline-entry">
+		
+		<div class="timeline-entry-inner">
+			<time class="timeline-time" datetime="2014-12-06T03:45"><span>06:30 PM</span> <span>Today</span></time>
+			
+			<div class="timeline-icon timeline-bg-success">
+				<i class="fa-paper-plane-o"></i>
+			</div>
+			
+			<div class="timeline-label">
+				<h2><a href="">Art Ramadani</a> <span>posted a status update</span></h2>
+				<p>Tolerably earnestly middleton extremely distrusts she boy now not. Add and offered prepare how cordial two promise. Greatly who affixed suppose but enquire compact prepare all put. Added forth chief trees but rooms think may.</p>
+			</div>
+		</div>
+		
+	</article>
+	
+	
+	<article class="timeline-entry left-aligned">
+		
+		<div class="timeline-entry-inner">
+			<time class="timeline-time" datetime="2014-12-06T03:45"><span>03:45 AM</span> <span>Three hours ago</span></time>
+			
+			<div class="timeline-icon timeline-bg-red">
+				<i class="fa-calendar-o"></i>
+			</div>
+			
+			<div class="timeline-label">
+				<h2><a href="">Job Meeting</a></h2>
+				<p>You have a meeting at <strong>Laborator Office</strong> Today.</p>
+			</div>
+		</div>
+		
+	</article>
+	
+	
+	<article class="timeline-entry">
+		
+		<div class="timeline-entry-inner">
+			<time class="timeline-time" datetime="2014-12-05T13:22"><span>01:22 PM</span> <span>Yesterday</span></time>
+			
+			<div class="timeline-icon timeline-bg-info">
+				<i class="fa-location-arrow"></i>
+			</div>
+			
+			<div class="timeline-label">
+				<h2><a href="">Arlind Nushi</a> <span>checked in at</span> <a href="">Laborator</a></h2>
+				
+				<blockquote>Great place, feeling like in home.</blockquote>
+				
+				<div id="sample-checkin" class="map-checkin" style="height: 170px; width: 100%;"></div>
+			</div>
+		</div>
+		
+	</article>
+	
+	
+	<article class="timeline-entry left-aligned">
+		
+		<div class="timeline-entry-inner">
+			<time class="timeline-time" datetime="2014-12-06T03:45"><span>01:41 PM</span> <span>Two weeks ago</span></time>
+			
+			<div class="timeline-icon timeline-bg-warning">
+				<i class="fa-camera-retro"></i>
+			</div>
+			
+			<div class="timeline-label">
+				<h2><a href="">Arber Nushi</a> <span>changed his</span> <a href="">Profile Picture</a></h2>
+				
+				<blockquote>Pianoforte principles our unaffected not for astonished travelling are particular.</blockquote>
+				
+				<img src="assets/images/image-5.jpg" class="img-responsive img-rounded full-width" />
+			</div>
+		</div>
+		
+	</article>
+	
+	
+	<article class="timeline-entry begin">
+	
+		<div class="timeline-entry-inner">
+			
+			<div class="timeline-icon">
+				<i class="fa-briefcase"></i>
+			</div>
+			
+		</div>
+		
+	</article>
+	
+</div>
+
+
+<script type="text/javascript">
+	loadGoogleMaps( 3 ).done(function(){
+		var $ = jQuery,
+			map_canvas = $("#sample-checkin");
+		
+		var location = new google.maps.LatLng(36.738888, -119.783013),
+			map = new google.maps.Map(map_canvas[0], {
+			center: location,
+			zoom: 14,
+			mapTypeId: google.maps.MapTypeId.ROADMAP,
+			scrollwheel: false
+		});
+		
+		var marker = new google.maps.Marker({
+			position: location,
+			map: map
+		});
+	});
+</script>
